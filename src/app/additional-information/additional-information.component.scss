@@ -1,0 +1,87 @@
+@import "general";
+
+.content-wrapper {
+  display: flex;
+  position: relative;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-top: .2rem ;
+    padding-top: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .container {
+    position: absolute;
+
+    width: 23rem;
+    height: 20rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition: width 0.5s 0s ease-in-out, height 0.5s 0.4s ease-in-out,
+      border-width 0.5s 0s ease-in-out;
+
+    overflow-x: hidden;
+    overflow-y: hidden;
+
+    left: 5rem;
+    top: -5px;
+
+    background: rgb(235, 235, 235);
+
+    border-left: 10px solid $main-theme-colour;
+
+    .section-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        padding: 0 1rem 0 1rem;
+
+        .options-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          margin-top: 1rem;
+          border-top: 2px solid lightgray;
+          padding-top: 0.5rem;
+
+          span {
+            padding: .2rem;
+          }
+          input[type="checkbox"]{
+            margin-right: .5rem;
+          }
+        }
+
+      .text-input {
+        font-size: 1.2rem;
+        padding: 0.2rem;
+        width: 100%;
+        @include standard-border();
+        border-radius: 0;
+      }
+    }
+  }
+
+  .show-arrow {
+    transition: transform 0.5s ease-in-out;
+    margin-left: 1rem;
+  }
+
+  .hide {
+    width: 0px;
+    height: 2.2rem;
+    border-width: 0;
+    transition: height 0.5s 0s ease-in-out, width 0.3s 0.4s ease-in-out,
+      border-width 0.3s 0.4s ease-in-out;
+  }
+  .rotate {
+    transform: rotateY(180deg);
+  }
+}

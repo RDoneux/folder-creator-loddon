@@ -1,0 +1,80 @@
+<div class="content-wrapper">
+  <i
+    (click)="toggleShow()"
+    class="fa-solid fa-arrow-right-long show-arrow"
+    [ngClass]="showing ? 'rotate' : ''"
+  ></i>
+  <div [ngClass]="showing ? '' : 'hide'" class="container">
+    <div class="section-wrapper">
+      <h1>Additional Information</h1>
+      <form>
+        <label for="organisation">Organisation</label>
+        <input
+          id="organisation"
+          name="organisation"
+          [ngModel]="organisation"
+          (ngModelChange)="updateOrganisation($event)"
+          class="text-input"
+          type="text"
+        />
+        <label for="score">Score</label>
+        <input
+          id="score"
+          name="score"
+          [ngModel]="score"
+          (ngModelChange)="updateScore($event)"
+          class="text-input"
+          type="number"
+          min="0"
+          max="50"
+          step="1"
+        />
+        <div class="options-wrapper">
+          <span>
+            <input
+              id="audit-based-interventions"
+              name="audit-based-interventions"
+              [ngModel]="interventions"
+              (ngModelChange)="updateInterventions($event)"
+              type="checkbox"
+            />
+
+            <label for="audit-based-interventions"
+              >Passed Audit-based Interventions</label
+            >
+          </span>
+          <span>
+            <input
+              id="presentation"
+              name="presentation"
+              [ngModel]="presentation"
+              (ngModelChange)="updatePresentation($event)"
+              type="checkbox"
+            />
+            <label for="presentation">Passed Presentation</label>
+          </span>
+          <span>
+            <input
+              id="portfolio"
+              name="portfolio"
+              [ngModel]="portfolio"
+              (ngModelChange)="updatePortfolio($event)"
+              type="checkbox"
+            />
+            <label for="portfolio">Passed Portfolio</label>
+          </span>
+          <span>
+            <input
+              id="courseOutcome"
+              name="courseOutcome"
+              [ngModel]="courseOutcome"
+              (ngModelChange)="updateCourseOutcome($event)"
+              type="checkbox"
+            />
+            <label for="overallOutcome">Passed Overall Course</label>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

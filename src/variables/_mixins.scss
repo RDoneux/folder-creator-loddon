@@ -1,0 +1,26 @@
+@import 'variables';
+
+@mixin standard-border ($faces-as-array: (top, right, bottom, left)) {
+    $border: 1px solid $default-border-colour;
+    @if (array-contains($faces-as-array, top)) {
+        border-top: $border
+    }
+    @if (array-contains($faces-as-array, right)) {
+        border-right: $border;
+    }
+    @if (array-contains($faces-as-array, bottom)) {
+        border-bottom: $border;
+    }
+    @if (array-contains($faces-as-array, left)) {
+        border-left: $border;
+    }
+}
+
+@function array-contains ($array, $value) {
+    @each $element in $array {
+        @if($element == $value){
+            @return true;
+        }
+    }
+    @return false;
+}

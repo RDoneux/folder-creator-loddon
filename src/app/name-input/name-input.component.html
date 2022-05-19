@@ -1,0 +1,17 @@
+<div class="container">
+  <input
+    #textInput
+    class="name-input"
+    type="text"
+    (keydown.enter)="handleKeyPress()"
+    (keydown)="handleChange($event)"
+    placeholder="Candidate Name"
+  />
+  <input
+    #inputButton
+    class="add-button"
+    type="button"
+    value="Add"
+    (click)="handleButtonClick()"
+  />
+</div>

@@ -1,0 +1,39 @@
+@import "general";
+
+.container {
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+  .name-input {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+
+    width: 100%;
+
+    @include standard-border();
+
+    font-family: $default-font;
+  }
+  .add-button {
+    padding: 0.6rem;
+    font-size: 1.2rem;
+
+    margin: 0 0.5rem;
+
+    background: $main-theme-colour;
+    @include standard-border();
+
+    color: white;
+
+    width: 8rem;
+
+    font-family: $default-font;
+
+    &:hover {
+      background: rgb(214, 50, 50);
+    }
+  }
+}

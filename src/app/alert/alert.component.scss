@@ -1,0 +1,39 @@
+@import 'general';
+
+.alert-container {
+    position: fixed;
+
+    left: calc(35%);
+    // top: 30rem;
+
+    width: 30%;
+    height: 4rem;
+
+    background: rgb(218, 255, 224);
+    border-bottom: 10px solid $default-success-colour;
+
+    font-family: $default-font;
+
+    // box-shadow: 3px 3px 7px lightgray;
+
+    padding: .5rem;
+    padding-left: 1rem;
+
+    border-radius: 0 0 10px 10px;
+
+    transform: translateY(0);
+
+    transition: transform 1s ease-in-out;
+
+    p{
+        text-align: center;
+        margin-top: .5rem;
+        font-size: 1.1rem;
+    }
+
+    &.hide {
+        transform: translateY(-20rem);
+    }
+
+}
+
