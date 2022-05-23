@@ -1,0 +1,87 @@
+
+<app-setting-modal *ngIf="showAddModal" (cancel)="displayModal(false)"></app-setting-modal>
+<app-surround>
+  <div class="container">
+    <h1>Course Settings</h1>
+    <div class="document-wrapper">
+      <table>
+        <th class="reference-name">Reference Name</th>
+        <th class="document-name">Document name</th>
+        <th class="version-information">Version Information</th>
+        <th class="delete"></th>
+        <tr *ngFor="let document of documents; let i = index">
+          <td>
+            <i class="fa-solid fa-file"></i>
+            <label for="{{ document.name }}" class="name-wrapper">{{
+              document.name
+            }}</label>
+          </td>
+          <td>
+            <label for="{{ document.name }}" class="value-wrapper">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              {{ document.display }}</label
+            >
+          </td>
+          <td>
+            <label class="version-wrapper" for="{{ document.name }}">
+              <i class="fa-solid fa-code-branch"></i>
+              {{ document.version }}</label
+            >
+          </td>
+          <td>
+            <i
+              class="fa-solid fa-trash-can"
+              id="{{ document.name }}-delete"
+              (click)="handleFileDelete($event)"
+            ></i>
+          </td>
+          <input
+            hidden
+            (change)="handleFileChange($event)"
+            id="{{ document.name }}"
+            type="file"
+          />
+        </tr>
+        <tr>
+          <td
+            colspan="4"
+            (click)="displayModal(true)"
+          >
+            Add new document
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="course-wrapper">
+      <ul *ngFor="let course of courses">
+        <h2>{{ course.name }}</h2>
+        <ul>
+          <h3 class="course-list_first">General Files</h3>
+          <li
+            *ngFor="let file of course.files.generalFiles; let i = index"
+            class="course-list_first"
+          >
+            <label for="generalRequired-{{ i }}">{{ file.name }}</label
+            ><input
+              id="generalRequired-{{ i }}"
+              type="checkbox"
+              checked="file.required"
+            />
+          </li>
+          <h3 class="course-list_second">Candidate Files</h3>
+          <li
+            *ngFor="let file of course.files.candidateFiles; let i = index"
+            class="course-list_second"
+          >
+            <label for="candidateRequired-{{ i }}">{{ file.name }}</label>
+            <input
+              id="candidateRequired-{{ i }}"
+              type="checkbox"
+              checked="file.required"
+            />
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</app-surround>

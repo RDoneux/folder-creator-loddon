@@ -1,0 +1,33 @@
+<div class="container" (click)="handleCancel($event)">
+  <div #content class="wrapper">
+    <h1>Upload new document</h1>
+    <div class="document-name-wrapper">
+      <label *ngIf="fileToUpload" for="document-name">Document name: </label>
+      <input
+        *ngIf="fileToUpload"
+        id="document-name"
+        type="text"
+        placeholder="No file currently uploaded"
+        [(ngModel)]="documentKey"
+        value="{{ fileToUpload.name.replace('.docx', '') }}"
+      />
+    </div>
+    <i class="fa-solid fa-xmark close" (click)="close()"></i>
+    <div class="dropzone-wrapper">
+      <div #dropZone class="dropzone">
+        <span *ngIf="!fileToUpload">Drag and drop a file to upload...</span>
+        <i *ngIf="fileToUpload"class="fa-regular fa-file"></i>
+                <span *ngIf="fileToUpload"> {{ fileToUpload.name }}</span>
+      </div>
+    </div>
+    <div class="footer-wrapper">
+      <input class="custom-file-select" type="file" />
+      <input
+        class="create-document"
+        (click)="handleAddFiles()"
+        type="button"
+        value="Create Document"
+      />
+    </div>
+  </div>
+</div>

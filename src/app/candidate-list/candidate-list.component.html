@@ -1,28 +1,7 @@
 <app-alert #alert></app-alert>
-<div class="container">
-  <div class="content-wrapper">
-    <div class="course-type-wrapper">
-      <h1>Folder Generator</h1>
-      <div>
-        <input
-          [ngModel]="date"
-          (ngModelChange)="handleDateChange($event)"
-          class="date"
-          type="date"
-        />
-        <select
-          #courseType
-          (change)="handleCourseTypeChange($event)"
-          class="dropdown"
-          type="dropdown"
-        >
-          <option *ngFor="let course of courseTypes" value="{{ course }}">
-            {{ course }}
-          </option>
-        </select>
-      </div>
-    </div>
-    <div class="background-colour">
+<app-surround>
+  <div class="container">
+    <div class="content-wrapper">
       <div class="candidate-wrapper">
         <span class="nothing-to-display" *ngIf="candidateNames.length == 0"
           >no candidates currently added
@@ -45,7 +24,6 @@
             ></i>
           </li>
         </ul>
-        <app-side-nav></app-side-nav>
       </div>
       <div class="submit-wrapper">
         <app-name-input
@@ -61,4 +39,65 @@
       >
     </div>
   </div>
-</div>
+</app-surround>
+<!-- <div class="container">
+  <div class="content-wrapper">
+    <div class="course-type-wrapper">
+      <h1>Folder Generator</h1>
+      <div>
+        <input
+          [ngModel]="date"
+          (ngModelChange)="handleDateChange($event)"
+          class="date"
+          type="date"
+        />
+        <select
+          #courseType
+          (change)="handleCourseTypeChange($event)"
+          class="dropdown"
+          type="dropdown"
+        >
+          <option *ngFor="let course of courseTypes" value="{{ course }}">
+            {{ course }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="candidate-wrapper">
+      <span class="nothing-to-display" *ngIf="candidateNames.length == 0"
+        >no candidates currently added
+      </span>
+      <ul *ngIf="candidateNames.length > 0">
+        <li
+          class="candidate-wrapper__item"
+          *ngFor="let name of candidateNames; let i = index"
+        >
+          {{ name.name }}
+          <app-additional-information
+            #additionalInformation
+            (information)="handleInformationUpdate($event)"
+            class="page-end"
+            candidateIndex="{{ i }}"
+          ></app-additional-information>
+          <i
+            (click)="deleteCandidate(i)"
+            class="fa-solid fa-trash-can delete-tag"
+          ></i>
+        </li>
+      </ul>
+      <app-side-nav></app-side-nav>
+    </div>
+    <div class="submit-wrapper">
+      <app-name-input
+        (emittedCandidateName)="addCandidate($event)"
+        (change)="resetError($event)"
+      ></app-name-input>
+      <button #submit class="submit-button" (click)="submitCandidates()">
+        Submit
+      </button>
+    </div>
+    <span class="warning-message" *ngIf="errorMessage"
+      >[error]: {{ errorMessage }}</span
+    >
+  </div>
+</div> -->

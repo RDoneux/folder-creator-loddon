@@ -1,0 +1,101 @@
+@import "general";
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: $default-background-colour;
+
+  overflow-y: auto;
+
+  h1 {
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .document-wrapper {
+    height: 30%;
+    overflow-y: auto;
+    table {
+      padding-left: 0;
+      width: 100%;
+      tr {
+        padding: 0.2rem;
+        padding-left: 2rem;
+        list-style-type: none;
+
+        i {
+          padding-right: .5rem;
+        }
+      }
+
+      tr:nth-child(odd) {
+        background: rgb(223, 223, 223);
+      }
+
+      tr:hover {
+          background: rgb(114, 171, 255);
+      }
+    }
+  }
+
+  .course-wrapper {
+    padding-top: 5rem;
+
+    height: 60%;
+    overflow-y: auto;
+
+    h2 {
+      padding-left: 2rem;
+      padding-top: 1rem;
+      text-align: center;
+      border-top: 1px solid darkgray;
+    }
+
+    ul {
+      padding-left: 0;
+      margin: 0;
+    }
+    li {
+      padding: 0.2rem;
+
+      padding-left: 2rem;
+      list-style-type: none;
+    }
+    li:nth-child(even) {
+      background: rgb(223, 223, 223);
+    }
+
+    .course-list_first {
+      padding-left: 2rem;
+      label {
+        display: inline-block;
+        width: 22rem;
+      }
+    }
+
+    .course-list_second {
+      padding-left: 4rem;
+      label {
+        display: inline-block;
+        width: 20rem;
+      }
+    }
+  }
+
+  .reference-name{
+    width: 40%;
+  }
+  .document-name {
+    width: 40%;
+  }
+  .version-information {
+    width: 19%;
+  }
+  .delete {
+    width: 1%;
+  }
+  .hidden {
+      display: fixed;
+      top: -9999px;
+  }
+}

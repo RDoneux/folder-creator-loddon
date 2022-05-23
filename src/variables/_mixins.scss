@@ -1,26 +1,60 @@
-@import 'variables';
+@import "variables";
 
-@mixin standard-border ($faces-as-array: (top, right, bottom, left)) {
-    $border: 1px solid $default-border-colour;
-    @if (array-contains($faces-as-array, top)) {
-        border-top: $border
-    }
-    @if (array-contains($faces-as-array, right)) {
-        border-right: $border;
-    }
-    @if (array-contains($faces-as-array, bottom)) {
-        border-bottom: $border;
-    }
-    @if (array-contains($faces-as-array, left)) {
-        border-left: $border;
-    }
+@mixin standard-border(
+  $faces-as-array: (
+    top,
+    right,
+    bottom,
+    left,
+  )
+) {
+  $border: 1px solid $default-border-colour;
+  @if (array-contains($faces-as-array, top)) {
+    border-top: $border;
+  }
+  @if (array-contains($faces-as-array, right)) {
+    border-right: $border;
+  }
+  @if (array-contains($faces-as-array, bottom)) {
+    border-bottom: $border;
+  }
+  @if (array-contains($faces-as-array, left)) {
+    border-left: $border;
+  }
 }
 
-@function array-contains ($array, $value) {
-    @each $element in $array {
-        @if($element == $value){
-            @return true;
-        }
+@mixin button() {
+  padding: 0.6rem;
+  font-size: 1.2rem;
+
+  margin: 0;
+
+  background: $main-theme-colour;
+  @include standard-border();
+
+  color: white;
+
+  width: 10rem;
+
+  font-family: $default-font;
+
+  &:hover {
+    background: rgb(214, 50, 50);
+  }
+}
+
+@mixin no-user-select-text() {
+    color: $no-user-select-text-colour;
+    user-select: none;
+    font-size: 1.1rem;
+    font-family: $default-font;
+}
+
+@function array-contains($array, $value) {
+  @each $element in $array {
+    @if ($element == $value) {
+      @return true;
     }
-    @return false;
+  }
+  @return false;
 }
