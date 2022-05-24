@@ -1,5 +1,7 @@
-
-<app-setting-modal *ngIf="showAddModal" (cancel)="displayModal(false)"></app-setting-modal>
+<app-setting-modal
+  *ngIf="showAddModal"
+  (cancel)="displayModal(false)"
+></app-setting-modal>
 <app-surround>
   <div class="container">
     <h1>Course Settings</h1>
@@ -43,45 +45,46 @@
           />
         </tr>
         <tr>
-          <td
-            colspan="4"
-            (click)="displayModal(true)"
-          >
-            Add new document
-          </td>
+          <td colspan="4" (click)="displayModal(true)">Add new document</td>
         </tr>
       </table>
     </div>
     <div class="course-wrapper">
-      <ul *ngFor="let course of courses">
-        <h2>{{ course.name }}</h2>
+      <div class="course-select-wrapper">
+      <select (change)="handleCourseChange($event)" class="course-select">
+        <option *ngFor="let course of courses">{{ course.name }}</option>
+      </select>
+    </div>
         <ul>
           <h3 class="course-list_first">General Files</h3>
           <li
-            *ngFor="let file of course.files.generalFiles; let i = index"
+            *ngFor="let file of selectedCourse.files.generalFiles; let i = index"
             class="course-list_first"
           >
             <label for="generalRequired-{{ i }}">{{ file.name }}</label
             ><input
               id="generalRequired-{{ i }}"
               type="checkbox"
-              checked="file.required"
+              value="{{ selectedCourse.name }}|{{ file.name }}"
+              (change)="handleGeneralRequiredChange($event)"
+              [checked]="file.required == 'true'"
             />
           </li>
           <h3 class="course-list_second">Candidate Files</h3>
           <li
-            *ngFor="let file of course.files.candidateFiles; let i = index"
+            *ngFor="let file of selectedCourse.files.candidateFiles; let i = index"
             class="course-list_second"
           >
             <label for="candidateRequired-{{ i }}">{{ file.name }}</label>
             <input
               id="candidateRequired-{{ i }}"
               type="checkbox"
-              checked="file.required"
+              value="{{ selectedCourse.name }}|{{ file.name }}"
+              (change)="handleCandidateRequiredChange($event)"
+              [checked]="file.required == 'true'"
             />
           </li>
         </ul>
-      </ul>
     </div>
   </div>
 </app-surround>

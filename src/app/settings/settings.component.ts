@@ -11,7 +11,7 @@ export class SettingsComponent implements OnInit {
   courses: any;
 
   showAddModal: boolean = false;
-
+  selectedCourse: any;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -22,13 +22,14 @@ export class SettingsComponent implements OnInit {
     this.http.get<any>('http://localhost:8080/settings').subscribe((data) => {
       this.documents = data.courseFileLocations;
       this.courses = data.courseRequirements;
+      this.selectedCourse = this.courses[0];
     });
   }
 
   handleFileDelete(event) {
     console.log(event.target.id);
     const formData = new FormData();
-    const documentKey: string = event.target.id.replace("-delete", "");
+    const documentKey: string = event.target.id.replace('-delete', '');
 
     formData.append('key', documentKey);
     this.http
@@ -57,8 +58,47 @@ export class SettingsComponent implements OnInit {
     window.location.reload();
   }
 
+  handleGeneralRequiredChange(checkbox) {
+    const targetCourse = checkbox.target.value.split('|')[0];
+    const targetDocument = checkbox.target.value.split('|')[1];
+    const newValue = checkbox.target.checked;
+
+    const formData = new FormData();
+
+    formData.append('targetCourse', targetCourse);
+    formData.append('targetDocument', targetDocument);
+    formData.append('newValue', newValue);
+
+    this.http
+      .post('http://localhost:8080/updateRequiredGeneralDocument', formData)
+      .subscribe((data) => {});
+  }
+
+  handleCandidateRequiredChange(checkbox) {
+    const targetCourse = checkbox.target.value.split('|')[0];
+    const targetDocument = checkbox.target.value.split('|')[1];
+    const newValue = checkbox.target.checked;
+
+    const formData = new FormData();
+
+    formData.append('targetCourse', targetCourse);
+    formData.append('targetDocument', targetDocument);
+    formData.append('newValue', newValue);
+
+    this.http
+      .post('http://localhost:8080/updateRequiredCandidateDocument', formData)
+      .subscribe((data) => {});
+  }
+
+  handleCourseChange(event) {
+    this.courses.forEach((element) => {
+      if (element.name === event.target.value) {
+        this.selectedCourse = element;
+      }
+    });
+  }
+
   displayModal(show: boolean) {
     this.showAddModal = show;
   }
-
 }
