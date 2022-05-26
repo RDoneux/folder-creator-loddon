@@ -11,6 +11,7 @@ export class SettingsComponent implements OnInit {
   courses: any;
 
   showAddModal: boolean = false;
+  showProfileAddModal: boolean = false;
   selectedCourse: any;
   constructor(private http: HttpClient) {}
 
@@ -90,12 +91,16 @@ export class SettingsComponent implements OnInit {
       .subscribe((data) => {});
   }
 
-  handleCourseChange(event) {
+  handleCourseProfileChange(event) {
     this.courses.forEach((element) => {
       if (element.name === event.target.value) {
         this.selectedCourse = element;
       }
     });
+  }
+
+  displayProfileAddModal(show: boolean) {
+    this.showProfileAddModal = show
   }
 
   displayModal(show: boolean) {

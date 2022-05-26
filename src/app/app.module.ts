@@ -16,6 +16,11 @@ import { SurroundComponent } from './surround/surround.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingModalComponent } from './setting-modal/setting-modal.component';
+import { AddCourseProfileModalComponent } from './add-course-profile-modal/add-course-profile-modal.component';
+import { WorkflowComponent } from './workflow/workflow.component';
+import { CourseWorkflowCardComponent } from './workflow/course-workflow-card/course-workflow-card.component';
+import { PriorityIconComponent } from './workflow/course-workflow-card/priority-icon/priority-icon.component';
+import { DeadlineCountdownComponent } from './workflow/course-workflow-card/deadline-countdown/deadline-countdown.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,11 @@ import { SettingModalComponent } from './setting-modal/setting-modal.component';
     TopBarComponent,
     SettingsComponent,
     SettingModalComponent,
+    AddCourseProfileModalComponent,
+    WorkflowComponent,
+    CourseWorkflowCardComponent,
+    PriorityIconComponent,
+    DeadlineCountdownComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,24 @@
+@import "general";
+
+.days-do-deadline {
+  font-family: $default-font;
+
+  display: inline-block;
+
+  padding: 0.2rem 0.5rem;
+  // border: 1px solid gray;
+
+  width: 100%;
+  background: $default-information-colour;
+  border-radius: 5px;
+
+  &.danger {
+    background: $default-error-colour;
+  }
+  &.warning {
+    background: $default-warning-colour;
+  }
+  &.safe {
+    background: $default-information-colour;
+  }
+}

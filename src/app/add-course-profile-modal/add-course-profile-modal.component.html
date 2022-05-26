@@ -1,0 +1,14 @@
+<div class="container" (click)="handleCancel($event)">
+  <div #content class="wrapper">
+    <h1>New Course Profile</h1>
+    <div class="input-wrapper">
+      <input #textInput class="text-input" type="text" />
+      <input
+        class="button-input"
+        type="button"
+        value="Add profile"
+        (click)="handleSubmit(); handleCancel($event)"
+      />
+    </div>
+  </div>
+</div>

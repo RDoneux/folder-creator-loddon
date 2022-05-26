@@ -86,6 +86,12 @@
         font-weight: 600;
         background: rgb(199, 199, 199);
       }
+      .add-course-button {
+        @include button;
+        width: 3rem;
+        margin-left: .2rem;
+        border: 1px solid rgb(27, 27, 27);
+      }
     }
 
     .course-list_first {

@@ -1,0 +1,39 @@
+@import "general";
+
+.container {
+  width: 10rem;
+  height: 13rem;
+
+  margin-top: 1.5rem;
+  
+  background: rgb(207, 207, 207);
+
+  border-radius: 10px;
+
+  box-shadow: $box-shadow-light;
+
+  padding: 0.5rem;
+
+  .title {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+    font-size: 1.3rem;
+
+    margin: 0.5rem 0;
+  }
+
+  .priority {
+
+    display: inline-block;
+    width: 100%;
+    padding: .5rem;
+    border-top: 1px solid $default-background-colour;
+    font-family: $default-font;
+  }
+
+  .description {
+    margin: 0;
+  }
+}

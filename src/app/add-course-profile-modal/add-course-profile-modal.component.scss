@@ -1,0 +1,59 @@
+@import "general";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  z-index: $z-index-modal;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $modal-background-colour;
+
+  .wrapper {
+    position: relative;
+
+    width: 40%;
+    height: 20%;
+    background: $default-background-colour;
+
+    box-shadow: $default-box-shadow;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 0 1rem;
+
+    h1 {
+      margin: 0.2rem 0;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .input-wrapper {
+      display: flex;
+      width: 100%;
+      margin-top: 0.4rem;
+
+      .text-input {
+        padding: 0.6rem;
+        width: 80%;
+        font-size: 1.1rem;
+        font-family: $default-font;
+      }
+      .button-input {
+        @include button;
+        width: 20%;
+        margin-left: 0.2rem;
+      }
+    }
+  }
+}

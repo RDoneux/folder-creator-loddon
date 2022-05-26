@@ -1,0 +1,45 @@
+@import "general";
+
+.temp-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+.container {
+  background: $default-background-colour;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+
+  // height: fit-content;
+
+
+
+  .track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+
+    h2 {
+      text-align: center;
+      padding-bottom: 1rem;
+      width: 80%;
+      border-bottom: 1px solid $default-border-colour;
+    }
+    // background: pink;
+    width: 20%;
+    height: auto;
+    min-height: 100%;
+    height: fit-content;
+
+    // margin: 0 .2rem;
+    border-left: 1px solid $default-border-colour;
+    border-right: 1px solid $default-border-colour;
+  }
+}

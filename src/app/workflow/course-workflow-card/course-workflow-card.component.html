@@ -1,0 +1,11 @@
+<div class="container" draggable="true">
+  <h2 class="title">{{ courseName }}</h2>
+  <p class="description">{{ created | date: "dd/MM/yyyy" }}</p>
+  <span class="priority"
+    >priority: <app-priority-icon priority="{{priority}}"></app-priority-icon
+  ></span>
+  <app-deadline-countdown
+    start="{{ created }}"
+    end="{{ deadline }}"
+  ></app-deadline-countdown>
+</div>

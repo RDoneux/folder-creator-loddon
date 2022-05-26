@@ -1,0 +1,25 @@
+<app-surround>
+  <div class="container">
+    <div class="track" *ngFor="let track of tracks">
+      <h2>{{ track.title }}</h2>
+      <app-course-workflow-card
+        *ngFor="let card of track.cards"
+        courseName="{{ card.name }}"
+        created="{{ card.created }}"
+        deadline="{{ card.deadline }}"
+        priority="{{ card.priority }}"
+        description="this is the course description, it can be fairly simple to be honest"
+      ></app-course-workflow-card>
+    </div>
+  </div>
+
+  <!-- <div class="temp-wrapper"> -->
+  <!-- <app-course-workflow-card
+      *ngFor="let course of cards.files"
+      courseName="{{ course.name }}"
+      created="{{ course.date }}"
+      deadline="{{ course.deadline }}"
+      description="this is the course description, it can be fairly simple to be honest"
+    ></app-course-workflow-card> -->
+  <!-- </div> -->
+</app-surround>

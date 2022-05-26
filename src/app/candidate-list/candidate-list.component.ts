@@ -56,6 +56,7 @@ export class CandidateListComponent implements OnInit {
   }
 
   handleDateChange(date: string) {
+    console.log("date called: " + date);
     this.date = date;
   }
   handleCourseTypeChange(courseType: any) {
@@ -75,6 +76,7 @@ export class CandidateListComponent implements OnInit {
       this.errorMessage = 'Please add at least one candidate before submitting';
       return;
     }
+    console.log(JSON.stringify(course));
     this.http
       .post<any>('http://localhost:8080/', JSON.stringify(course))
       .subscribe((data) => {

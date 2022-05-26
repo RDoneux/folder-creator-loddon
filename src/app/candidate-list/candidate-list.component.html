@@ -2,7 +2,26 @@
 <app-surround>
   <div class="container">
     <div class="content-wrapper">
+      <div>
+        <input
+          [ngModel]="date"
+          (ngModelChange)="handleDateChange($event)"
+          class="date"
+          type="date"
+        />
+        <select
+          #courseType
+          ([ngModel])="courseType"
+          class="dropdown"
+          type="dropdown"
+        >
+          <option *ngFor="let course of courseTypes" value="{{ course }}">
+            {{ course }}
+          </option>
+        </select>
+      </div>
       <div class="candidate-wrapper">
+        
         <span class="nothing-to-display" *ngIf="candidateNames.length == 0"
           >no candidates currently added
         </span>

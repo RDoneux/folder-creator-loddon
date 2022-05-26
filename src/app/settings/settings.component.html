@@ -2,6 +2,12 @@
   *ngIf="showAddModal"
   (cancel)="displayModal(false)"
 ></app-setting-modal>
+<app-add-course-profile-modal
+  *ngIf="showProfileAddModal"
+  (cancel)="displayProfileAddModal(false)"
+  app-add-course-profile-modal
+>
+</app-add-course-profile-modal>
 <app-surround>
   <div class="container">
     <h1>Course Settings</h1>
@@ -51,40 +57,53 @@
     </div>
     <div class="course-wrapper">
       <div class="course-select-wrapper">
-      <select (change)="handleCourseChange($event)" class="course-select">
-        <option *ngFor="let course of courses">{{ course.name }}</option>
-      </select>
-    </div>
-        <ul>
-          <h3 class="course-list_first">General Files</h3>
-          <li
-            *ngFor="let file of selectedCourse.files.generalFiles; let i = index"
-            class="course-list_first"
-          >
-            <label for="generalRequired-{{ i }}">{{ file.name }}</label
-            ><input
-              id="generalRequired-{{ i }}"
-              type="checkbox"
-              value="{{ selectedCourse.name }}|{{ file.name }}"
-              (change)="handleGeneralRequiredChange($event)"
-              [checked]="file.required == 'true'"
-            />
-          </li>
-          <h3 class="course-list_second">Candidate Files</h3>
-          <li
-            *ngFor="let file of selectedCourse.files.candidateFiles; let i = index"
-            class="course-list_second"
-          >
-            <label for="candidateRequired-{{ i }}">{{ file.name }}</label>
-            <input
-              id="candidateRequired-{{ i }}"
-              type="checkbox"
-              value="{{ selectedCourse.name }}|{{ file.name }}"
-              (change)="handleCandidateRequiredChange($event)"
-              [checked]="file.required == 'true'"
-            />
-          </li>
-        </ul>
+        <select
+          (change)="handleCourseProfileChange($event)"
+          class="course-select"
+        >
+          <option *ngFor="let course of courses">{{ course.name }}</option>
+        </select>
+        <button
+          type="button"
+          class="add-course-button"
+          (click)="displayProfileAddModal(true)"
+        >
+          <i class="fa-solid fa-plus"></i>
+        </button>
+      </div>
+      <ul>
+        <h3 class="course-list_first">General Files</h3>
+        <li
+          *ngFor="let file of selectedCourse.files.generalFiles; let i = index"
+          class="course-list_first"
+        >
+          <label for="generalRequired-{{ i }}">{{ file.name }}</label
+          ><input
+            id="generalRequired-{{ i }}"
+            type="checkbox"
+            value="{{ selectedCourse.name }}|{{ file.name }}"
+            (change)="handleGeneralRequiredChange($event)"
+            [checked]="file.required == 'true'"
+          />
+        </li>
+        <h3 class="course-list_second">Candidate Files</h3>
+        <li
+          *ngFor="
+            let file of selectedCourse.files.candidateFiles;
+            let i = index
+          "
+          class="course-list_second"
+        >
+          <label for="candidateRequired-{{ i }}">{{ file.name }}</label>
+          <input
+            id="candidateRequired-{{ i }}"
+            type="checkbox"
+            value="{{ selectedCourse.name }}|{{ file.name }}"
+            (change)="handleCandidateRequiredChange($event)"
+            [checked]="file.required == 'true'"
+          />
+        </li>
+      </ul>
     </div>
   </div>
 </app-surround>

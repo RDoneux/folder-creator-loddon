@@ -7,17 +7,20 @@ $default-border-colour: rgb(131, 131, 131);
 
 $side-tabs-background-colour: rgb(114, 114, 114);
 
-$default-error-colour: rgb(240, 70, 70);
-$default-success-colour: rgb(88, 233, 69);
+$default-error-colour: rgb(255, 53, 53);
+$default-warning-colour: rgb(255, 255, 106);
+$default-success-colour: rgb(148, 255, 133);
+$default-information-colour: rgb(125, 125, 255);
 
 $default-font: "Abel", sans-serif;
 $default-text-colour: #000000;
 $no-user-select-text-colour: transparentize($color: #000000, $amount: 0.7);
 
-
 $box-shadow-colour: rgb(26, 26, 26);
+$box-shadow-colour-light: rgb(97, 97, 97);
 
 $default-box-shadow: 5px 5px 8px $box-shadow-colour;
+$box-shadow-light: 3px 3px 3px $box-shadow-colour-light;
 
 // z-indexing
 $z-index-content: 100;

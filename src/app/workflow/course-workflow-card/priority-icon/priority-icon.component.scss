@@ -1,0 +1,41 @@
+@import "general";
+
+.container {
+  display: inline;
+
+  padding: 0rem 0.5rem;
+  
+
+  text-align: center;
+
+  border-radius: 5px;
+
+
+
+//   background: $side-tabs-background-colour;
+
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+
+
+  span {
+    font-size: .8rem;
+    font-family: $default-font;
+    color: $default-text-colour;
+    font-weight: bolder;
+    letter-spacing: 2px;
+  }
+}
+
+.high {
+    background: $default-error-colour;
+}
+
+.medium {
+    background: $default-warning-colour;
+    color: $default-text-colour;
+}
+
+.low {
+    background: $default-success-colour;
+}
