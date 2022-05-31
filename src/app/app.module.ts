@@ -17,7 +17,7 @@ import { SurroundComponent } from './surround/surround.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingModalComponent } from './settings/setting-modal/setting-modal.component';
-import { AddCourseProfileModalComponent } from './add-course-profile-modal/add-course-profile-modal.component';
+import { AddCourseProfileModalComponent } from './settings/add-course-profile-modal/add-course-profile-modal.component';
 import { WorkflowComponent } from './workflow/workflow.component';
 import { CourseWorkflowCardComponent } from './workflow/course-workflow-card/course-workflow-card.component';
 import { PriorityIconComponent } from './workflow/course-workflow-card/priority-icon/priority-icon.component';
