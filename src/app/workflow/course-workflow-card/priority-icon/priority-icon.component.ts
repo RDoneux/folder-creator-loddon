@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PriorityIconComponent implements OnInit {
   @Input() priority: string;
+  @Input() fullSize: string = 'false';
 
   constructor() {}
 

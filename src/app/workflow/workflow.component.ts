@@ -1,3 +1,8 @@
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,6 +22,8 @@ export class WorkflowComponent implements OnInit {
   ];
   tracks: Array<Track> = new Array<Track>(this.trackNames.length);
 
+  cardModalShow: boolean = false;
+
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -28,20 +35,47 @@ export class WorkflowComponent implements OnInit {
     }
   }
 
+  drop(event: CdkDragDrop<CourseCard[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      this.updateTag(
+        event.container.element.nativeElement.id,
+        event.item.data.path
+      );
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+  }
   getCourses() {
     this.http.get('http://localhost:8080/getCourses').subscribe((data) => {
       this.cards = data;
+
       for (var i = 0; i < this.cards.files.length; i++) {
         const card: CourseCard = this.cards.files[i];
+        // this.cards.files[i].people = JSON.parse(this.cards.files[i].people);
 
-        switch (card.tag) {
+        console.log("first line", this.cards.files[i].people);
+
+        // console.log(JSON.parse(this.cards.files[i].people));
+
+      
+        switch (card.tag.toLowerCase()) {
           case 'courses':
             this.tracks[0].cards.push(card);
             break;
           case 'being written':
             this.tracks[1].cards.push(card);
             break;
-          case 'require review':
+          case 'require 2nd review':
             this.tracks[2].cards.push(card);
             break;
           case 'final sign off':
@@ -56,6 +90,27 @@ export class WorkflowComponent implements OnInit {
       }
     });
   }
+
+  getTaggedPeople() : string[] {
+    return ["this", "and", "tnat"];
+  }
+
+  updateTag(tag: string, path: string) {
+    console.log(tag + ' : ' + path);
+
+    const formData = new FormData();
+
+    formData.append('tag', tag);
+    formData.append('path', path);
+
+    this.http
+      .post('http://localhost:8080/updateTag', formData)
+      .subscribe((data) => {});
+  }
+
+  displayModal(event, show: boolean) {
+    this.cardModalShow = show;
+  }
 }
 
 export interface Track {
@@ -68,8 +123,10 @@ export interface CourseCard {
   name: string;
   comments: string[];
   description: string;
-  people: string[];
+  assigned: string;
   priority: string;
   created: string;
+  date: string;
   deadline: string;
+  path: string;
 }

@@ -12,9 +12,14 @@ $default-warning-colour: rgb(255, 255, 106);
 $default-success-colour: rgb(148, 255, 133);
 $default-information-colour: rgb(125, 125, 255);
 
+$default-button-disabled-colour: rgb(219, 219, 219);
+
 $default-font: "Abel", sans-serif;
 $default-text-colour: #000000;
-$no-user-select-text-colour: transparentize($color: #000000, $amount: 0.7);
+$no-user-select-text-colour: transparentize(
+  $color: #000000,
+  $amount: 0.7,
+);
 
 $box-shadow-colour: rgb(26, 26, 26);
 $box-shadow-colour-light: rgb(97, 97, 97);
@@ -27,3 +32,15 @@ $z-index-content: 100;
 $z-index-title: 200;
 $z-index-nav: 300;
 $z-index-modal: 400;
+
+// font-sizes
+$header-font-size-very-large: 2.2rem;
+$header-font-size-very: 2rem;
+$header-font-size-medium: 1.8rem;
+$header-font-size-small: 1.6rem;
+
+$font-size-very-large: 1.4rem;
+$font-size-large: 1.2;
+$font-size-medium: 1rem;
+$font-size-small: 0.8rem;
+$font-size-very-small: 0.6rem;

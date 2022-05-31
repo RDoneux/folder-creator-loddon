@@ -6,12 +6,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./course-workflow-card.component.scss'],
 })
 export class CourseWorkflowCardComponent implements OnInit {
-  @Input() courseName: String;
+  @Input() courseName: string;
   @Input() created: string;
   @Input() deadline: string;
+  @Input() date: string;
   @Input() description: string;
   @Input() priority: string;
+  @Input() path: string;
+  @Input() assigned: string;
+  @Input() comments: string;
+  @Input() tag: string;
 
+  cardModalShow: boolean = false;
 
   constructor() {}
 
@@ -19,5 +25,9 @@ export class CourseWorkflowCardComponent implements OnInit {
 
   }
 
+  displayModal(show: boolean) {
+    this.cardModalShow = show;
+  }
+  
 
 }

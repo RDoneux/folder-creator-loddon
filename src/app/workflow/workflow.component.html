@@ -1,15 +1,32 @@
 <app-surround>
-  <div class="container">
-    <div class="track" *ngFor="let track of tracks">
+  <div class="container" cdkDropListGroup>
+    <div
+      id="{{ track.title }}"
+      cdkDropList
+      class="track"
+      (cdkDropListDropped)="drop($event)"
+      [cdkDropListData]="track.cards"
+      *ngFor="let track of tracks; let i = index"
+    >
       <h2>{{ track.title }}</h2>
       <app-course-workflow-card
         *ngFor="let card of track.cards"
+        cdkDrag
+        (click)="displayModal($event, true)"
+        [cdkDragData]="card"
         courseName="{{ card.name }}"
         created="{{ card.created }}"
+        date="{{ card.date }}"
         deadline="{{ card.deadline }}"
         priority="{{ card.priority }}"
+        path="{{ card.path }}"
+        comments="{{ card.comments }}"
+        assigned="{{ card.assigned }}"
+        tag="{{ card.tag }}"
         description="this is the course description, it can be fairly simple to be honest"
-      ></app-course-workflow-card>
+      >
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      </app-course-workflow-card>
     </div>
   </div>
 

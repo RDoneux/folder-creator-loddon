@@ -11,17 +11,16 @@
         />
         <select
           #courseType
-          ([ngModel])="courseType"
+          (change)="handleCourseTypeChange($event)"
           class="dropdown"
           type="dropdown"
         >
-          <option *ngFor="let course of courseTypes" value="{{ course }}">
+          <option *ngFor="let course of courses" value="{{ course }}">
             {{ course }}
           </option>
         </select>
       </div>
       <div class="candidate-wrapper">
-        
         <span class="nothing-to-display" *ngIf="candidateNames.length == 0"
           >no candidates currently added
         </span>

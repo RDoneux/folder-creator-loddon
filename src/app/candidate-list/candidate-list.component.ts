@@ -21,19 +21,27 @@ export class CandidateListComponent implements OnInit {
 
   @ViewChild('alert') alert: AlertComponent;
 
-  courseTypes: string[] = [
-    'Instructor Course',
-    'Introductory & Foundation',
-    'Principal Instructor Course',
-  ];
-
-  courseType: string = this.courseTypes[0];
+  courses: Array<string> = new Array();
+  selectedCourse: string;
 
   errorMessage: string = '';
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCurrentSettings();
+  }
+
+  getCurrentSettings() {
+    this.http.get<any>('http://localhost:8080/settings').subscribe((data) => {
+      const coursesTemp = data.courseRequirements;
+
+      coursesTemp.forEach((data) => {
+        this.courses.push(data.name);
+      });
+      this.selectedCourse = data.courseRequirements[0];
+    });
+  }
 
   addCandidate(candidate: Candidate) {
     if (!candidate.name) {
@@ -56,21 +64,21 @@ export class CandidateListComponent implements OnInit {
   }
 
   handleDateChange(date: string) {
-    console.log("date called: " + date);
+    console.log('date called: ' + date);
     this.date = date;
   }
   handleCourseTypeChange(courseType: any) {
-    this.courseType = courseType.target.value;
+    this.selectedCourse = courseType.target.value;
   }
 
   submitCandidates() {
     var course: Course = {
-      courseType: this.courseType,
+      courseType: this.selectedCourse,
       date: this.date,
       candidates: this.candidateNames,
     };
 
-    // console.log(JSON.stringify(course));
+    console.log(this.selectedCourse);
 
     if (this.candidateNames.length <= 0) {
       this.errorMessage = 'Please add at least one candidate before submitting';
@@ -83,7 +91,7 @@ export class CandidateListComponent implements OnInit {
         if (data.response === 'Success') {
           console.log(this.alert);
           // TODO set err response
-          this.alert.setAlert("Course Successfully Created");
+          this.alert.setAlert('Course Successfully Created');
         }
       });
 

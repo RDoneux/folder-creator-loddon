@@ -1,0 +1,79 @@
+$progress-indicator-size: 40px;
+
+.container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  font-size: 2.2rem;
+  height: 20%;
+
+  justify-content: space-evenly;
+  align-items: center;
+
+  .completed {
+    position: absolute;
+    top: 0;
+    left: 0;  
+    width: 100%;
+    height: 100%;
+    background: green;
+    opacity: .3;
+  }
+
+  .progress-chevron {
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+
+  .done {
+    color: green;
+    border-color: green;
+    border: 4px solid green;
+  }
+
+  //   .progress-indicator-wrapper {
+  //     position: absolute;
+  //     display: flex;
+
+  //     &.courses,
+  //     .being-written,
+  //     .require-review,
+  //     .final-review,
+  //     .admin {
+  //       top: 0;
+  //       left: 0;
+  //     }
+  //     &.being-written {
+  //       left: 80px;
+  //     }
+  //     &.require-review {
+  //       left: 240px;
+  //     }
+  //     &.final-review {
+  //       left: 360px;
+  //     }
+  //     &.admin {
+  //       left: 480px;
+  //     }
+  //     .progress-indicator-tip {
+  //       width: 0;
+  //       height: 0;
+  //       border: calc($progress-indicator-size / 2) solid transparent;
+  //       border-top: calc($progress-indicator-size / 2) solid transparent;
+  //       border-left: calc($progress-indicator-size) solid blue;
+  //     }
+  //     .progress-indicator-body {
+  //       width: 80px;
+  //       height: $progress-indicator-size;
+  //       background: blue;
+  //     }
+  //     .done {
+  //       &.progress-indicator-tip {
+  //         border-left: calc($progress-indicator-size) solid green;
+  //       }
+  //       &.progress-indicator-body {
+  //         background: green;
+  //       }
+  //     }
+  //   }
+}

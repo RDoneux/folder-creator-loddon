@@ -1,0 +1,23 @@
+@import 'general';
+
+.container {
+  padding: 1rem;
+  .header {
+      font-family: $default-font;
+      font-size: $font-size-large;
+  }
+
+  .name-wrapper {
+    padding: 1rem;
+    background: green;
+    border-radius: 2rem;
+    font-family: $default-font;
+    font-size: $font-size-large;
+
+    color: white;
+
+    box-shadow: 2px 2px 2px gray;
+
+    user-select: none;
+  }
+}

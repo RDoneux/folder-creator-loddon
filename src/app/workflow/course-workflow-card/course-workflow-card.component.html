@@ -1,8 +1,22 @@
-<div class="container" draggable="true">
+<app-card-modal
+  *ngIf="cardModalShow"
+  (cancel)="displayModal(false)"
+  courseName="{{ courseName }}"
+  courseDate="{{ date }}"
+  courseDeadline="{{ deadline }}"
+  courseCreated="{{ created }}"
+  description="{{ description }}"
+  priority="{{ priority }}"
+  coursePath="{{ path }}"
+  comments="{{ comments }}"
+  assigned="{{ assigned }}"
+  tag="{{ tag }}"
+></app-card-modal>
+<div class="container" draggable="true" (click)="displayModal(true)">
   <h2 class="title">{{ courseName }}</h2>
   <p class="description">{{ created | date: "dd/MM/yyyy" }}</p>
   <span class="priority"
-    >priority: <app-priority-icon priority="{{priority}}"></app-priority-icon
+    >priority: <app-priority-icon priority="{{ priority }}"></app-priority-icon
   ></span>
   <app-deadline-countdown
     start="{{ created }}"

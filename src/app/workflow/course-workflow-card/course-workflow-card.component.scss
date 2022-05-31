@@ -1,10 +1,12 @@
 @import "general";
 
 .container {
-  width: 10rem;
-  height: 13rem;
+  height: 18vw;
+  min-height: 18rem;
+  width: 14vw;
+  max-width: 15rem;
 
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   
   background: rgb(207, 207, 207);
 

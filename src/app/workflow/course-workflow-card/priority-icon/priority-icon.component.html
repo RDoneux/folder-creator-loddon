@@ -1,3 +1,6 @@
-<div class="container {{priority}}" >
+<div *ngIf="fullSize == 'false'" class="container {{ priority }}">
   <span>{{ priority.toUpperCase() }}</span>
+</div>
+<div *ngIf="fullSize == 'true'" class="container full-size {{ priority }}">
+  <span> PRIORITY: {{ priority.toUpperCase() }}</span>
 </div>

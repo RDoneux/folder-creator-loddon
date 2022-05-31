@@ -1,0 +1,68 @@
+<div class="container" (click)="handleCancel($event)">
+  <div #content class="content">
+    <i class="fa-solid fa-xmark close" (click)="close()"></i>
+
+    <div class="title-wrapper">
+      <h1 class="course-title">{{ courseName }}</h1>
+      <h2 class="date-header">{{ courseDate }}</h2>
+    </div>
+    <div class="main-content-wrapper">
+      <div class="course-information-wrapper">
+        <div class="course-information">
+          <h4>Course Description</h4>
+          <p>{{ description }}</p>
+        </div>
+        <div class="comments-wrapper">
+          <div class="comment-title__input-wrapper">
+            <label class="comment-input__label" for="comment-input">
+              Course Activity:
+            </label>
+            <div class="comment__input-wrapper">
+              <input
+                class="comment-input__field"
+                id="comment-input"
+                type="text"
+                [(ngModel)]="commentText"
+              />
+              <input
+                class="comment-input__button"
+                type="button"
+                value="Save"
+                (click)="addComment()"
+                [disabled]="!commentText"
+              />
+            </div>
+          </div>
+          <div class="comment__comment-wrapper">
+            <h3
+              class="comment__card"
+              *ngFor="let comment of commentsArray.slice().reverse()"
+            >
+              {{ comment }}
+              <!-- TODO: add date, delete and edit -->
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="workflow-information-wrapper">
+        <app-workflow-progress tag="{{ tag }}"></app-workflow-progress>
+        <div class="course-folder-wrapper">
+          <h2>Course Folder:</h2>
+          <h3>{{ coursePath }}</h3>
+          <!-- TODO: implement course moving with button below -->
+          <!-- <input class="course-folder-button" (click)="handleMoveCourse()" type="button" value="Move Course" /> -->
+        </div>
+        <app-assigned-tag name="{{ assigned }}"></app-assigned-tag>
+        <div class="date-wrapper">
+          <h4><span>Deadline for records:</span>{{ courseDeadline }}</h4>
+          <h4><span>Course created on:</span>{{ courseCreated }}</h4>
+        </div>
+      </div>
+    </div>
+    <app-priority-icon
+      class="priority-info"
+      fullSize="true"
+      priority="{{ priority }}"
+    ></app-priority-icon>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="container">
+  <i class="fa-solid fa-check progress-chevron {{ progress[0] }}"></i>
+  <i class="fa-solid fa-check progress-chevron {{ progress[1] }}"></i>
+  <i class="fa-solid fa-check progress-chevron {{ progress[2] }}"></i>
+  <i class="fa-solid fa-check progress-chevron {{ progress[3] }}"></i>
+  <i class="fa-solid fa-check progress-chevron {{ progress[4] }}"></i>
+  <div *ngIf="progress[4] == 'done'" class="completed">
+  </div>
+</div>

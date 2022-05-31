@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter  , OnInit, Output, ViewChild } from '@angular/core';
-import { Candidate } from '../candidate-list/candidate-list.component';
+import { Candidate } from '../candidate-list.component';
 
 @Component({
   selector: 'app-name-input',
