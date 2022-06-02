@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
 import { FeatureRequiredComponent } from './feature-required/feature-required.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 import { WorkflowComponent } from './workflow/workflow.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'create-course', component: CandidateListComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'workflows', component: WorkflowComponent },
+  { path: 'users', component: UserManagementComponent },
   { path: 'no-feature', component: FeatureRequiredComponent },
 ];
 

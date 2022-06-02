@@ -1,0 +1,6 @@
+<div class="container" (click)="handleCancel($event)">
+  <div #content class="wrapper" [ngStyle]="getStyles()">
+    <i class="fa-solid fa-xmark close" (click)="close()"></i>
+    <ng-content></ng-content>
+  </div>
+</div>

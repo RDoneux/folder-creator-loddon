@@ -1,0 +1,41 @@
+@import "general";
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  z-index: $z-index-modal;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $modal-background-colour;
+
+  .wrapper {
+    position: relative;
+
+    width: 50%;
+    height: 60%;
+    background: $default-background-colour;
+
+    box-shadow: $default-box-shadow;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 0 1rem;
+
+    .close {
+      position: absolute;
+
+      top: 0.5rem;
+      right: 1rem;
+    }
+  }
+}

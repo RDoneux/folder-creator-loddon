@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { DragDropModule} from '@angular/cdk/drag-drop'
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +26,10 @@ import { CardModalComponent } from './workflow/course-workflow-card/card-modal/c
 import { WorkflowProgressComponent } from './workflow/course-workflow-card/card-modal/workflow-progress/workflow-progress.component';
 import { FeatureRequiredComponent } from './feature-required/feature-required.component';
 import { AssignedTagComponent } from './workflow/course-workflow-card/card-modal/assigned-tag/assigned-tag.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserIconComponent } from './user-management/user-icon/user-icon.component';
+import { ModalComponent } from './modal/modal.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { AssignedTagComponent } from './workflow/course-workflow-card/card-modal
     WorkflowProgressComponent,
     FeatureRequiredComponent,
     AssignedTagComponent,
+    UserManagementComponent,
+    UserIconComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,9 +63,10 @@ import { AssignedTagComponent } from './workflow/course-workflow-card/card-modal
     AppRoutingModule,
     FormsModule,
     DragDropModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ColorPickerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
