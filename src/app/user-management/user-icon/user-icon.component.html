@@ -1,0 +1,12 @@
+<div class="overview">
+  <div class="container" [ngStyle]="{ background: hexColour }">
+    <span>{{ name }}</span>
+    <div class="additional-options-wrapper">
+      <i class="fa-solid fa-trash-can" (click)="deleteUser($event)"></i>
+      <i class="fa-solid fa-palette colour" (change)="updateColour($event)">
+        <input type="color" [(ngModel)]="hexColour" />
+      </i>
+    </div>
+  </div>
+  <!-- {{ hexColour }} -->
+</div>

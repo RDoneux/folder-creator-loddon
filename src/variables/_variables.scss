@@ -1,9 +1,12 @@
 $main-theme-colour: rgb(71, 71, 71);
+$main-moustache-colour: rgb(179, 179, 179);
 
 $modal-background-colour: rgba(0, 0, 0, 0.7);
 
 $default-background-colour: rgb(189, 189, 189);
 $default-border-colour: rgb(131, 131, 131);
+
+$default-button-hover-colour: rgb(255, 53, 53);
 
 $side-tabs-background-colour: rgb(114, 114, 114);
 
@@ -35,7 +38,7 @@ $z-index-modal: 400;
 
 // font-sizes
 $header-font-size-very-large: 2.2rem;
-$header-font-size-very: 2rem;
+$header-font-size-large : 2rem;
 $header-font-size-medium: 1.8rem;
 $header-font-size-small: 1.6rem;
 

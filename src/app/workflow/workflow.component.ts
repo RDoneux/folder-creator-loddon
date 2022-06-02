@@ -34,7 +34,6 @@ export class WorkflowComponent implements OnInit {
       this.tracks[i].cards = new Array<CourseCard>();
     }
   }
-
   drop(event: CdkDragDrop<CourseCard[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
