@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Folder Generator</h1>
+  <h1 *ngIf="userService.user">
+    Logged in as:
+    <div class="user-wrapper" [ngStyle]="{background: userService.user.colour}">{{ userService.user.name }}</div>
+  </h1>
+  <h1 *ngIf="!userService.user"><i class="fa-solid fa-triangle-exclamation warning"></i></h1>
+</div>

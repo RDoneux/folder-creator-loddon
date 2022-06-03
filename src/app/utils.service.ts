@@ -1,5 +1,6 @@
 import { TemplateBindingParseResult } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { User } from './user-management/user-management.component';
 
 @Injectable({
   providedIn: 'root',
@@ -30,25 +31,3 @@ export class UtilsService {
     return splitDate.join('-');
   }
 }
-// export const Required = (target: Object, propertyKey: string) => {
-//   let currentValue: any = target[propertyKey];
-//   console.log("currentValue = " + currentValue);
-
-
-//   Object.defineProperty(target, propertyKey, {
-//     get() {
-//       throw new Error("Property '${propertyKey}' is required");
-//     },
-//     set(value) {
-//       Object.defineProperty(target, propertyKey, {
-//         value,
-//         writable: true,
-//         configurable: true,
-//       });
-
-//     },
-//     configurable: true,
-//   });
-//   // console.log("value"  + target[propertyKey]);
-
-// }

@@ -1,5 +1,5 @@
 <div class="overview">
-  <div class="container" [ngStyle]="{ background: hexColour }">
+  <div class="container" (click)="setUser()" [ngStyle]="{ background: hexColour }">
     <span>{{ name }}</span>
     <div class="additional-options-wrapper">
       <i class="fa-solid fa-trash-can" (click)="deleteUser($event)"></i>
@@ -8,5 +8,4 @@
       </i>
     </div>
   </div>
-  <!-- {{ hexColour }} -->
 </div>

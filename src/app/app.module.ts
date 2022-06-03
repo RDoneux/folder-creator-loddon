@@ -10,10 +10,10 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
 import { AdditionalInformationComponent } from './additional-information/additional-information.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
+import { SideNavComponent } from './surround/side-nav/side-nav.component';
 import { LogComponent } from './log/log.component';
 import { SurroundComponent } from './surround/surround.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
+import { TopBarComponent } from './surround/top-bar/top-bar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingModalComponent } from './settings/setting-modal/setting-modal.component';
 import { AddCourseProfileModalComponent } from './settings/add-course-profile-modal/add-course-profile-modal.component';

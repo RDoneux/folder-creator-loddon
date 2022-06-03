@@ -1,0 +1,46 @@
+@import "general";
+
+.container {
+  // min-height: 5rem;
+  // max-height: 5rem;
+
+  width: 100vw;
+
+  // padding: .5;
+
+  // display: flex;
+
+  // background: $side-tabs-background-colour;
+
+  // opacity: 50%;
+
+  width: 100%;
+
+  background: $main-theme-colour;
+  padding: 1rem 2rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  // box-shadow: 0px 3px 5px rgb(77, 77, 77);
+
+  h1 {
+    margin: 0;
+
+    font-family: $default-font;
+    padding: 0rem;
+
+    display: flex;
+
+    .warning {
+      color: $default-warning-colour;
+    }
+  }
+
+  .user-wrapper {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 0 0.8rem;
+    margin-left: 0.8rem;
+  }
+}

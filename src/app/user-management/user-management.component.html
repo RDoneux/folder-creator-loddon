@@ -6,6 +6,7 @@
         *ngFor="let user of users"
         name="{{ user.name }}"
         colour="{{ user.colour }}"
+        initials="{{ user.initials }}"
       ></app-user-icon>
       <span (click)="showModal()"><i class="fa-solid fa-plus"></i></span>
     </div>

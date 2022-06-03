@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-user-icon',
@@ -9,13 +10,14 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 export class UserIconComponent implements OnInit {
   @Input() name: string;
   @Input() colour: string;
+  @Input() initials: string;
   hexColour: string;
 
   @ViewChild('container') container: ElementRef;
 
   showColourPickerModal: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   ngOnInit(): void {
     this.hexColour = this.rgbToHex(this.stringRgb(this.colour));
@@ -39,6 +41,15 @@ export class UserIconComponent implements OnInit {
     this.http
       .post('http://localhost:8080/updateColour', formData)
       .subscribe((data) => {});
+  }
+
+  setUser() {
+    this.userService.user = {
+      name: this.name,
+      colour: this.colour,
+      initials: this.initials,
+    };
+    console.log(this.userService.user);
   }
 
   stringRgb(rgb: string): string[] {

@@ -22,7 +22,7 @@ export class UserManagementComponent implements OnInit {
   getUsers() {
     this.http.get('http://localhost:8080/users').subscribe((data) => {
       this.users = data;
-      const usersData = this.users.users;
+      const usersData: User[] = this.users.users;
       this.users = usersData;
     });
   }
@@ -47,4 +47,10 @@ export class UserManagementComponent implements OnInit {
   showModal() {
     this.displayModal = true;
   }
+}
+
+export interface User {
+  name: string;
+  colour: string;
+  initials: string;
 }
