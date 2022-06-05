@@ -9,6 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/user.service';
 import { UtilsService } from 'src/app/utils.service';
 
 @Component({
@@ -39,7 +40,8 @@ export class CardModalComponent implements OnInit {
     private utils: UtilsService,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private UserUtils: UserService
   ) {}
 
   ngOnInit(): void {
@@ -70,12 +72,15 @@ export class CardModalComponent implements OnInit {
 
     formData.append('workFlowLocation', this.coursePath);
     formData.append('comment', this.commentText);
+    formData.append('user', this.UserUtils.currentUser.name);
 
     this.http
       .post('http://localhost:8080/addComment', formData)
       .subscribe((data) => {});
 
-    this.commentsArray.push(this.commentText);
+    this.commentsArray.push(
+      this.commentText + ':::' + this.UserUtils.currentUser.name
+    );
     this.commentText = '';
   }
 
