@@ -38,7 +38,7 @@
               class="comment__card"
               *ngFor="let comment of commentsArray.slice().reverse()"
             >
-              {{ comment }}
+              <app-comment value="{{comment}}"></app-comment>
               <!-- TODO: add date, delete and edit -->
             </h3>
           </div>

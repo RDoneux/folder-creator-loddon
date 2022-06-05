@@ -30,6 +30,7 @@ import { AssignedTagComponent } from './workflow/course-workflow-card/card-modal
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserIconComponent } from './user-management/user-icon/user-icon.component';
 import { ModalComponent } from './modal/modal.component';
+import { CommentComponent } from './workflow/course-workflow-card/card-modal/comment/comment.component';
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -57,6 +58,7 @@ import { ModalComponent } from './modal/modal.component';
     UserManagementComponent,
     UserIconComponent,
     ModalComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

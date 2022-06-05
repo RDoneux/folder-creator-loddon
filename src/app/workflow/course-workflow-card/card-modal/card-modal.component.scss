@@ -135,16 +135,6 @@
           .comment__comment-wrapper {
             overflow-y: auto;
             height: 75%;
-            .comment__card {
-              border-bottom: 1px solid gray;
-              margin: 0;
-              padding: 1rem;
-              &:before {
-                content: "\f075";
-                font-family: "Font Awesome 6 Free";
-                padding-right: 1rem;
-              }
-            }
           }
         }
       }

@@ -8,7 +8,7 @@ import { UntypedFormBuilder } from '@angular/forms';
   providedIn: 'root',
 })
 export class UserService {
-  users;
+  currentUser;
 
   constructor(public http: HttpClient, public cookieService: CookieService) {}
 
@@ -28,15 +28,13 @@ export class UserService {
     //     .subscribe((data) => {resolve(data)})
     // );
 
-    var cachedUser = this.cookieService.get("name");
-    console.log( this.cookieService.getAll());
-    console.log("casedas ", cachedUser);
-
+    var cachedUser = this.cookieService.get('name');
     return new Promise((resolve) => {
       this.http
         .get('http://localhost:8080/user/' + cachedUser)
         .subscribe((data) => {
           resolve(data);
+          this.currentUser = data;
         });
     });
 
@@ -55,6 +53,14 @@ export class UserService {
 
   setCurrentUser(user: User) {
     this.cookieService.set('name', user.name);
+  }
+
+  getUserByName(name: String) {
+    return new Promise((resolve) => {
+      this.http.get('http://localhost:8080/user/' + name).subscribe((data) => {
+        resolve(data);
+      });
+    });
   }
 
   printCookies() {
