@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { isIdentifier } from '@angular/compiler';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/user.service';
 
@@ -13,7 +14,9 @@ export class UserIconComponent implements OnInit {
   @Input() initials: string;
   hexColour: string;
 
-  @ViewChild('container') container: ElementRef;
+  // @ViewChild('container') container: ElementRef;
+  @ViewChild('deleteElement') deleteElement: ElementRef;
+  @ViewChild('colourElement') colourElement: ElementRef;
 
   showColourPickerModal: boolean;
 
@@ -43,13 +46,43 @@ export class UserIconComponent implements OnInit {
       .subscribe((data) => {});
   }
 
-  setUser() {
-    this.userService.user = {
+  setUser(event) {
+    if (!this.isRightLocationToSetUser(event)) {
+      return;
+    }
+    this.userService.setCurrentUser({
       name: this.name,
       colour: this.colour,
       initials: this.initials,
-    };
-    console.log(this.userService.user);
+    });
+    window.location.reload();
+  }
+
+  isRightLocationToSetUser(event): Boolean {
+    const deleteBounds =
+      this.deleteElement.nativeElement.getBoundingClientRect();
+    const colourBounds =
+      this.colourElement.nativeElement.getBoundingClientRect();
+    const x = event.clientX;
+    const y = event.clientY;
+
+    if (
+      x >= deleteBounds.left &&
+      x <= deleteBounds.right &&
+      y >= deleteBounds.top &&
+      y <= deleteBounds.bottom
+    ) {
+      return false;
+    }
+    if (
+      x >= colourBounds.left &&
+      x <= colourBounds.right &&
+      y >= colourBounds.top &&
+      y <= colourBounds.bottom
+    ) {
+      return false;
+    }
+    return true;
   }
 
   stringRgb(rgb: string): string[] {

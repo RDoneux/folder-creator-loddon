@@ -1,8 +1,14 @@
 <div class="container">
   <h1>Folder Generator</h1>
-  <h1 *ngIf="userService.user">
+  <h1 *ngIf="currentUser">
     Logged in as:
-    <div class="user-wrapper" [ngStyle]="{background: userService.user.colour}">{{ userService.user.name }}</div>
+    <div class="user-wrapper" [ngStyle]="{ background: currentUser.colour }">
+      <a routerLink="/users">{{ currentUser.name }}</a>
+    </div>
   </h1>
-  <h1 *ngIf="!userService.user"><i class="fa-solid fa-triangle-exclamation warning"></i></h1>
+  <h1 *ngIf="!currentUser">
+    <a routerLink="/users"
+      ><i class="fa-solid fa-triangle-exclamation warning"></i
+    ></a>
+  </h1>
 </div>
