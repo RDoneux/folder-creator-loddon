@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,7 +30,7 @@ import { AssignedTagComponent } from './workflow/course-workflow-card/card-modal
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserIconComponent } from './user-management/user-icon/user-icon.component';
 import { ModalComponent } from './modal/modal.component';
-import { ColorPickerModule } from 'ngx-color-picker';
+// import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -64,9 +65,10 @@ import { ColorPickerModule } from 'ngx-color-picker';
     FormsModule,
     DragDropModule,
     BrowserAnimationsModule,
-    ColorPickerModule,
+
+    // ColorPickerModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

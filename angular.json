@@ -117,5 +117,7 @@
       }
     }
   },
-  "defaultProject": "folder-creator"
+  "cli": {
+    "analytics": "34adca4a-c805-4833-8297-220e7066a612"
+  }
 }
