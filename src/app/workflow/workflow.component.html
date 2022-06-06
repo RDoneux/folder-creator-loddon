@@ -9,6 +9,7 @@
       *ngFor="let track of tracks; let i = index"
     >
       <h2>{{ track.title }}</h2>
+
       <app-course-workflow-card
         *ngFor="let card of track.cards"
         cdkDrag

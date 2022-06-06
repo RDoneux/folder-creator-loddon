@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
@@ -41,11 +42,13 @@ export class CardModalComponent implements OnInit {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-    private UserUtils: UserService
+    private UserUtils: UserService,
+    public datepipe: DatePipe
   ) {}
 
   ngOnInit(): void {
     this.commentsArray = this.comments.split(',');
+    console.log('comments array: ', this.commentsArray);
     this.courseName = this.utils.capitaliseString(
       this.utils.convertJSONName(this.courseName)
     );
@@ -79,7 +82,11 @@ export class CardModalComponent implements OnInit {
       .subscribe((data) => {});
 
     this.commentsArray.push(
-      this.commentText + ':::' + this.UserUtils.currentUser.name
+      this.commentText +
+        ':::' +
+        this.UserUtils.currentUser.name +
+        ':::' +
+        this.datepipe.transform(new Date(), 'MM-dd-yyyy|HH:mm')
     );
     this.commentText = '';
   }
