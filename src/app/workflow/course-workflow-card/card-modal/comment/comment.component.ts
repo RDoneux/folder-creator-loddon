@@ -9,23 +9,22 @@ import { UserService } from 'src/app/user.service';
   styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent implements OnInit {
-  @Input() value: String;
+  @Input() value: string;
 
-  comment: String;
+  comment: string;
   user;
+  date: string;
 
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    // console.log("this is the value and stuff", this.value);
     const split: string[] = this.value.split(':::');
-
-    console.log("split", split[0]);
-
+    // console.log("split", split[0]);
     this.comment = split[0];
-
     this.userService.getUserByName(split[1]).then((value) => {
       this.user = value;
-      console.log(this.user.initials);
     });
+    this.date = split[2];
   }
 }

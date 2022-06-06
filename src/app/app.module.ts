@@ -31,6 +31,7 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserIconComponent } from './user-management/user-icon/user-icon.component';
 import { ModalComponent } from './modal/modal.component';
 import { CommentComponent } from './workflow/course-workflow-card/card-modal/comment/comment.component';
+import { DatePipe } from '@angular/common';
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -70,7 +71,7 @@ import { CommentComponent } from './workflow/course-workflow-card/card-modal/com
 
     // ColorPickerModule,
   ],
-  providers: [CookieService],
+  providers: [CookieService, DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

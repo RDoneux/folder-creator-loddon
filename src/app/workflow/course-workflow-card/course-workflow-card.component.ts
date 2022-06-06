@@ -22,12 +22,9 @@ export class CourseWorkflowCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-
   }
 
   displayModal(show: boolean) {
     this.cardModalShow = show;
   }
-  
-
 }

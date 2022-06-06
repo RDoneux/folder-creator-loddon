@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workflow.component.scss'],
 })
 export class WorkflowComponent implements OnInit {
-  cards;
+  cards: CourseCard[];
   trackNames: string[] = [
     'Courses',
     'Being written',
@@ -56,17 +56,14 @@ export class WorkflowComponent implements OnInit {
   }
   getCourses() {
     this.http.get('http://localhost:8080/getCourses').subscribe((data) => {
-      this.cards = data;
+      const input: CardContainer = <CardContainer>data;
+      this.cards = <CourseCard[]>input.files;
 
-      for (var i = 0; i < this.cards.files.length; i++) {
-        const card: CourseCard = this.cards.files[i];
+      for (var i = 0; i < this.cards.length; i++) {
+        const card: CourseCard = this.cards[i];
         // this.cards.files[i].people = JSON.parse(this.cards.files[i].people);
-
-        console.log("first line", this.cards.files[i].people);
-
         // console.log(JSON.parse(this.cards.files[i].people));
-
-      
+        console.log(card.comments)
         switch (card.tag.toLowerCase()) {
           case 'courses':
             this.tracks[0].cards.push(card);
@@ -88,10 +85,12 @@ export class WorkflowComponent implements OnInit {
         }
       }
     });
+
+    console.log(this.tracks);
   }
 
-  getTaggedPeople() : string[] {
-    return ["this", "and", "tnat"];
+  getTaggedPeople(): string[] {
+    return ['this', 'and', 'tnat'];
   }
 
   updateTag(tag: string, path: string) {
@@ -120,7 +119,7 @@ export interface Track {
 export interface CourseCard {
   tag: string;
   name: string;
-  comments: string[];
+  comments: string;
   description: string;
   assigned: string;
   priority: string;
@@ -128,4 +127,8 @@ export interface CourseCard {
   date: string;
   deadline: string;
   path: string;
+}
+
+interface CardContainer {
+  files: [];
 }

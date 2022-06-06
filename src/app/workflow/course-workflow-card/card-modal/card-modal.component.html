@@ -34,13 +34,15 @@
             </div>
           </div>
           <div class="comment__comment-wrapper">
-            <h3
-              class="comment__card"
-              *ngFor="let comment of commentsArray.slice().reverse()"
-            >
-              <app-comment value="{{comment}}"></app-comment>
-              <!-- TODO: add date, delete and edit -->
-            </h3>
+            <div *ngIf="comments">
+              <h3
+                class="comment__card"
+                *ngFor="let comment of commentsArray.slice().reverse()"
+              >
+                <app-comment value="{{ comment }}"></app-comment>
+                <!-- TODO: add delete and edit -->
+              </h3>
+            </div>
           </div>
         </div>
       </div>
