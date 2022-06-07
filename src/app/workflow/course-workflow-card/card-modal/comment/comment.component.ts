@@ -1,5 +1,5 @@
 import { getSupportedInputTypes } from '@angular/cdk/platform';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/user-management/user-management.component';
 import { UserService } from 'src/app/user.service';
 
@@ -11,6 +11,8 @@ import { UserService } from 'src/app/user.service';
 export class CommentComponent implements OnInit {
   @Input() value: string;
 
+  edit: boolean = false;
+
   comment: string;
   user;
   date: string;
@@ -18,13 +20,20 @@ export class CommentComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    // console.log("this is the value and stuff", this.value);
     const split: string[] = this.value.split(':::');
-    // console.log("split", split[0]);
     this.comment = split[0];
     this.userService.getUserByName(split[1]).then((value) => {
       this.user = value;
     });
     this.date = split[2];
   }
+
+  editComment() {
+    console.log("new comment");
+  }
+
+  toggleEdit() {
+    this.edit = !this.edit;
+  }
+
 }

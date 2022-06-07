@@ -33,6 +33,28 @@
 
   .comment {
     line-height: 2rem;
+    width: 100%;
+    display: inline-block;
+    background: transparent;
+    border: none;
+    resize: none;
+    user-select: none;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .edit {
+
+    transition: transform 200ms ease-in-out;
+    &:hover{
+      color: white;
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(1);
+      transition: transform 50ms ease-in-out;
+    }
   }
 
   .break {

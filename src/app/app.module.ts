@@ -68,8 +68,6 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     DragDropModule,
     BrowserAnimationsModule,
-
-    // ColorPickerModule,
   ],
   providers: [CookieService, DatePipe],
   bootstrap: [AppComponent],
