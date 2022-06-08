@@ -1,6 +1,50 @@
-<div class="container">
-  <h3 class="header">Assigned to:</h3>
-  <span class="name-wrapper" (click)="handleNameChange()">
-    {{ name }}
+<div *ngIf="fullsize == 'true'" class="container">
+  <!-- <h3 class="header">Assigned to:</h3> -->
+  <span
+    class="name-wrapper"
+    [ngStyle]="{
+      background: assignedUser ? assignedUser.colour : unassignedColour
+    }"
+  >
+    {{ assignedUser ? assignedUser.name : "unassigned" }}
+  </span>
+  <div class="user-input-wrapper">
+    <div
+      class="user-search__dropdown"
+      [ngClass]="
+        showingList
+          ? 'user-search__dropdown-show'
+          : 'user-search__dropdown-hide'
+      "
+    >
+      <ul class="name-container">
+        <li
+          class="name-wrapper__dropdown"
+          *ngFor="let user of listShow"
+          (click)="setAssigned($event)"
+        >
+          {{ user.name }}
+        </li>
+      </ul>
+    </div>
+    <input
+      type="text"
+      class="user-search"
+      placeholder="To tag a user, start typing their name or select them from the list"
+      (focus)="showList()"
+      (focusout)="hideList()"
+      [(ngModel)]="searchText"
+      (input)="filterList()"
+    />
+  </div>
+</div>
+<div *ngIf="fullsize == 'false'" class="container">
+  <span
+    class="name-wrapper"
+    [ngStyle]="{
+      background: assignedUser ? assignedUser.colour : unassignedColour
+    }"
+  >
+    {{ assignedUser ? assignedUser.name : "unassigned" }}
   </span>
 </div>

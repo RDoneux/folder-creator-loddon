@@ -1,10 +1,18 @@
-@import 'general';
+@import "general";
 
 .container {
-  padding: 1rem;
+  // padding: 1rem;
+  display: flex;
+  height: 4rem;
+  padding: 0.5rem;
+  // background: yellow;
+
+  border-top: 1px solid $default-border-colour;
+  border-bottom: 1px solid $default-border-colour;
+
   .header {
-      font-family: $default-font;
-      font-size: $font-size-large;
+    font-family: $default-font;
+    font-size: $font-size-large;
   }
 
   .name-wrapper {
@@ -19,5 +27,79 @@
     box-shadow: 2px 2px 2px gray;
 
     user-select: none;
+  }
+
+  .user-input-wrapper {
+    position: relative;
+    margin-left: 3rem;
+    width: 70%;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user-search {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 20px;
+    border: 1px solid black;
+    display: relative;
+    // z-index: $z-index-content;
+    position: relative;
+  }
+
+  .user-search__dropdown {
+    transition: max-height 800ms ease-in-out;
+    overflow-y: hidden;
+    top: 6px;
+    right: 0;
+    padding: 0.6rem;
+
+    .name-container {
+      padding-top: 1rem;
+      padding-left: 0;
+
+      .name-wrapper__dropdown {
+        text-decoration: none;
+        list-style: none;
+
+        font-size: $font-size-large;
+        margin-top: 0.5rem;
+
+        padding: 0.2rem;
+        border-radius: 0;
+        width: 100%;
+        border-bottom: 1px solid $default-border-colour;
+        background: $main-moustache-colour;
+        // background: $main-moustache-colour;
+
+        &:hover {
+          color: white;
+          cursor: pointer;
+          // background: blue;
+        }
+      }
+    }
+  }
+
+  .user-search__dropdown-show {
+    width: 100%;
+    max-height: 2000px;
+    padding: 0.6rem;
+    border-radius: 20px;
+    position: absolute;
+    background: $main-moustache-colour;
+    box-shadow: $box-shadow-light;
+  }
+
+  .user-search__dropdown-hide {
+    width: 100%;
+    max-height: 2.2rem;
+    padding: 0.6rem;
+    border-radius: 20px;
+    position: absolute;
+    background: $main-moustache-colour;
+    box-shadow: $box-shadow-light;
   }
 }

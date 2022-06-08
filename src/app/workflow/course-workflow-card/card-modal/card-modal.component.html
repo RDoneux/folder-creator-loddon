@@ -54,7 +54,11 @@
           <!-- TODO: implement course moving with button below -->
           <!-- <input class="course-folder-button" (click)="handleMoveCourse()" type="button" value="Move Course" /> -->
         </div>
-        <app-assigned-tag name="{{ assigned }}"></app-assigned-tag>
+        <app-assigned-tag
+          name="{{ assigned }}"
+          coursePath="{{ coursePath }}"
+          fullsize="true"
+        ></app-assigned-tag>
         <div class="date-wrapper">
           <h4><span>Deadline for records:</span>{{ courseDeadline }}</h4>
           <h4><span>Course created on:</span>{{ courseCreated }}</h4>
