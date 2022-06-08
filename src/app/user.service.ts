@@ -29,6 +29,7 @@ export class UserService {
     // );
 
     var cachedUser = this.cookieService.get('name');
+    if(!cachedUser) return undefined;
     return new Promise((resolve) => {
       this.http
         .get('http://localhost:8080/user/' + cachedUser)

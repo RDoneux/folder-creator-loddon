@@ -7,8 +7,8 @@
     <textarea
       type="text"
       class="comment"
-      [readonly]="edit"
-      rows=1
+      [readonly]="!edit"
+      rows="1"
       [(ngModel)]="comment"
     ></textarea>
     <i class="fa-solid fa-pen-to-square edit" (click)="toggleEdit()"></i>

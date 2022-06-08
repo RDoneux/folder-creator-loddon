@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-course-workflow-card',
@@ -18,11 +19,9 @@ export class CourseWorkflowCardComponent implements OnInit {
   @Input() tag: string;
 
   cardModalShow: boolean = false;
+  constructor(public cookieService: CookieService) {}
 
-  constructor() {}
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   displayModal(show: boolean) {
     this.cardModalShow = show;

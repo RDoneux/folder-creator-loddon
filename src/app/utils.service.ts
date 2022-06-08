@@ -30,4 +30,18 @@ export class UtilsService {
     splitDate[2] = start;
     return splitDate.join('-');
   }
+
+  contains(comparison: string, substring: string) {
+    const brokenComparison: string[] = comparison.split('');
+    const brokenSubstring: string[] = substring.split('');
+    for (var i = 0; i < comparison.length - substring.length + 1; i++) {
+      const comparisonTarget = comparison
+        .substring(i, i + substring.length)
+        .toLowerCase();
+      if (comparisonTarget === substring.toLowerCase()) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
