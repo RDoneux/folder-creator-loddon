@@ -7,8 +7,9 @@
     </div>
   </h1>
   <h1 *ngIf="!currentUser">
-    <a routerLink="/users"
-      ><i class="fa-solid fa-triangle-exclamation warning"></i
-    ></a>
+    <app-tooltip text="You are not signed in - click here to select a user">
+      <a routerLink="/users"
+        ><i class="fa-solid fa-triangle-exclamation warning"> </i> </a
+    ></app-tooltip>
   </h1>
 </div>

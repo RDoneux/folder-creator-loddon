@@ -1,0 +1,29 @@
+@import "general";
+
+.container {
+  position: relative;
+
+  .tooltip {
+    max-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: $font-size-medium;
+    font-family: $default-font;
+
+    background: $modal-background-colour;
+    color: white;
+
+    border-radius: 10px;
+  }
+
+  &:hover {
+    .tooltip {
+      max-width: 1000px;
+      max-height: 1000px;
+      padding: 1rem;
+    }
+  }
+}

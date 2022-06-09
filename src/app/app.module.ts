@@ -32,6 +32,7 @@ import { UserIconComponent } from './user-management/user-icon/user-icon.compone
 import { ModalComponent } from './modal/modal.component';
 import { CommentComponent } from './workflow/course-workflow-card/card-modal/comment/comment.component';
 import { DatePipe } from '@angular/common';
+import { TooltipComponent } from './tooltip/tooltip.component';
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -60,6 +61,7 @@ import { DatePipe } from '@angular/common';
     UserIconComponent,
     ModalComponent,
     CommentComponent,
+    TooltipComponent,
   ],
   imports: [
     BrowserModule,
