@@ -38,7 +38,7 @@ export class UtilsService {
       const comparisonTarget = comparison
         .substring(i, i + substring.length)
         .toLowerCase();
-      if (comparisonTarget === substring.toLowerCase()) {
+      if (comparisonTarget === substring.toLowerCase()  ) {
         return true;
       }
     }

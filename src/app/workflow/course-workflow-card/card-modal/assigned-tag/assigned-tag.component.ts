@@ -20,7 +20,8 @@ export class AssignedTagComponent implements OnInit {
   private showModal = false;
   public showingList: boolean = false;
 
-  public unassignedColour = 'rgb(200,0,0)';
+  public unassignedBackground = 'rgb(0,0,0)';
+  public unassignedColour = 'rgb(255,255,255)'
 
   users;
   listShow: User[];

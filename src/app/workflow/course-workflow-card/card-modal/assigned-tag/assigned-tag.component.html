@@ -38,13 +38,19 @@
     />
   </div>
 </div>
-<div *ngIf="fullsize == 'false'" class="container">
+<div
+  *ngIf="fullsize == 'false'"
+  class="container-small"
+  [ngStyle]="{
+    background: assignedUser ? assignedUser.colour : unassignedBackground
+  }"
+>
   <span
-    class="name-wrapper"
+    class="name-wrapper-small"
     [ngStyle]="{
-      background: assignedUser ? assignedUser.colour : unassignedColour
+      color: assignedUser ? unassignedBackground : unassignedColour
     }"
   >
-    {{ assignedUser ? assignedUser.name : "unassigned" }}
+    {{ assignedUser ? assignedUser.name : "Unassigned" }}
   </span>
 </div>

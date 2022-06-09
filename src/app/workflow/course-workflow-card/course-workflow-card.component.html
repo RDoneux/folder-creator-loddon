@@ -12,18 +12,27 @@
   assigned="{{ assigned }}"
   tag="{{ tag }}"
 ></app-card-modal>
-<div class="container" draggable="true" (click)="displayModal(true)">
-  <h2 class="title">{{ courseName }}</h2>
-  <p class="description">{{ created | date: "dd/MM/yyyy" }}</p>
-  <span class="priority"
-    >priority: <app-priority-icon priority="{{ priority }}"></app-priority-icon
-  ></span>
+
+<div
+  class="container"
+  [ngStyle]="{ 'border-color': cardColour }"
+  draggable="true"
+  (click)="displayModal(true)"
+>
+  <div>
+    <h2 class="title">{{ courseName }}</h2>
+    <p class="date">{{ created | date: "dd/MM/yyyy" }}</p>
+    <span class="priority">
+      <app-priority-icon
+        fullSize="true"
+        priority="{{ priority }}"
+      ></app-priority-icon>
+    </span>
+
+    <app-assigned-tag name="{{ assigned }}" fullsize="false"></app-assigned-tag>
+  </div>
   <app-deadline-countdown
     start="{{ created }}"
     end="{{ deadline }}"
   ></app-deadline-countdown>
-
-  <app-assigned-tag
-  name="{{ assigned }}"
-  fullsize="false"
-></app-assigned-tag></div>
+</div>
