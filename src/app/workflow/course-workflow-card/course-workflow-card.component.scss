@@ -47,7 +47,19 @@
     text-align: center;
     padding-bottom: .5rem;
 
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.527);
 
+  }
+
+  .completion-tracker{
+    border-top: 1px solid rgba(128, 128, 128, 0.527);
+    padding-top: .5rem;
+    h3 {
+      margin-bottom: 0;
+      font-size: $font-size-small;
+      padding-left: .5rem;
+      margin-bottom: .4rem;
+      border-left: 4px solid green;
+    }
   }
 }

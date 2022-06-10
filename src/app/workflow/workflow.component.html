@@ -25,6 +25,7 @@
         assigned="{{ card.assigned }}"
         tag="{{ card.tag }}"
         description="this is the course description, it can be fairly simple to be honest"
+        files="{{ card.files | json }}"
       >
         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
       </app-course-workflow-card>

@@ -63,7 +63,7 @@ export class WorkflowComponent implements OnInit {
         const card: CourseCard = this.cards[i];
         // this.cards.files[i].people = JSON.parse(this.cards.files[i].people);
         // console.log(JSON.parse(this.cards.files[i].people));
-        console.log(card.comments)
+        console.log(card.files);
         switch (card.tag.toLowerCase()) {
           case 'courses':
             this.tracks[0].cards.push(card);
@@ -127,6 +127,28 @@ export interface CourseCard {
   date: string;
   deadline: string;
   path: string;
+  files: Files[];
+}
+
+export interface Files {
+  general: GeneralFiles[];
+  candidate: CandidateFiles[];
+}
+
+interface GeneralFiles {
+  inProgress: string;
+  name: string;
+  checked: string;
+  written: string;
+}
+
+interface CandidateFiles {
+  inProgress: string;
+  name: string;
+  checked: string;
+  noAttend: string;
+  written: string;
+  signedOff: string;
 }
 
 interface CardContainer {

@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/user-management/user-management.component';
 import { UserService } from 'src/app/user.service';
 import { UtilsService } from 'src/app/utils.service';
+import { Files } from '../workflow.component';
 
 @Component({
   selector: 'app-course-workflow-card',
@@ -21,6 +22,11 @@ export class CourseWorkflowCardComponent implements OnInit {
   @Input() assigned: string;
   @Input() comments: string;
   @Input() tag: string;
+  @Input() files: string;
+
+  public jsonFiles: Files;
+  public writtenCandidateFiles: number = 0;
+  public writtenGeneralFiles: number = 0;
 
   cardModalShow: boolean = false;
   cardColour: string = 'rgb(0,0,0)';
@@ -35,6 +41,18 @@ export class CourseWorkflowCardComponent implements OnInit {
         this.cardColour = user.colour;
       });
     }
+    this.jsonFiles = JSON.parse(this.files);
+
+    this.jsonFiles.general.forEach((data) => {
+      if (data.written == 'true') {
+        this.writtenGeneralFiles++;
+      }
+    });
+    this.jsonFiles.candidate.forEach((data) => {
+      if (data.written == 'true') {
+        this.writtenCandidateFiles++;
+      }
+    });
   }
 
   displayModal(show: boolean) {
