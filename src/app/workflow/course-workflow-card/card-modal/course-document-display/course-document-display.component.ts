@@ -136,7 +136,7 @@ export class CourseDocumentDisplayComponent implements OnInit {
 
     if (!flaggedCandidate) return;
 
-    console.log("flagged candidate", flaggedCandidate);
+    console.log('flagged candidate', flaggedCandidate);
     console.log(flaggedCandidate.inProgress);
     console.log(flaggedCandidate.written);
     console.log(flaggedCandidate.checked);
@@ -227,5 +227,18 @@ export class CourseDocumentDisplayComponent implements OnInit {
         return;
       }
     });
+  }
+
+  openFile(fileName: string, candidate?: string) {
+    const formData: FormData = new FormData();
+
+    formData.append('fileName', fileName);
+    formData.append('coursePath', this.coursePath);
+    if (candidate) {
+      formData.append('candidate', candidate);
+    }
+    this.http
+      .post('http://localhost:8080/openFile', formData)
+      .subscribe((data) => {});
   }
 }

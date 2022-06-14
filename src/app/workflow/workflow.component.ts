@@ -60,6 +60,8 @@ export class WorkflowComponent implements OnInit {
       const input: CardContainer = <CardContainer>data;
       this.cards = <CourseCard[]>input.files;
 
+    console.log("caaaaaaaaaaaaaaaaaaaaaaaaaaaards", this.cards);
+
       for (var i = 0; i < this.cards.length; i++) {
         const card: CourseCard = this.cards[i];
         // this.cards.files[i].people = JSON.parse(this.cards.files[i].people);

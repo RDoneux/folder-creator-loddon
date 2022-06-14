@@ -2,7 +2,7 @@
 <app-surround>
   <div class="container">
     <div class="content-wrapper">
-      <div>
+      <div class="course-type-wrapper">
         <input
           [ngModel]="date"
           (ngModelChange)="handleDateChange($event)"
@@ -16,7 +16,7 @@
           type="dropdown"
         >
           <option *ngFor="let course of courses" value="{{ course }}">
-            {{ course }}
+            {{ utils.convertJSONName(utils.capitaliseString(course)) }}
           </option>
         </select>
       </div>

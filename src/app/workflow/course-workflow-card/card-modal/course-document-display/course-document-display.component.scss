@@ -2,7 +2,7 @@
 
 h3 {
   border-bottom: 1px solid gray;
-  padding: 0.5rem 3rem;
+  padding: 0 1rem;
   margin: 0;
   font-family: $default-font;
 
@@ -11,6 +11,11 @@ h3 {
   .item-name {
     display: inline-block;
     width: 60%;
+    padding: 0.5rem 2rem;
+
+    &:hover {
+      color: white;
+    }
   }
 
   .item-checkboxes {
@@ -29,14 +34,13 @@ h3 {
 
   .document-checkboxes {
     display: inline-block;
-    width: 35%; 
-
+    width: 35%;
   }
 
   .divide {
-      display: inline-block;
-      width: 1rem;
-      text-align: center;
+    display: inline-block;
+    width: 1rem;
+    text-align: center;
   }
 
   &:hover {

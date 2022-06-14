@@ -1,7 +1,12 @@
 <div #rerender>
   <app-expandable-menu title="General Files">
     <h3 *ngFor="let file of jsonFiles.general">
-      <span class="item-name">
+      <span
+        class="item-name"
+        (click)="
+          openFile(utils.convertJSONName(utils.capitaliseString(file.name)))
+        "
+      >
         {{ utils.convertJSONName(utils.capitaliseString(file.name)) }}
       </span>
       <span class="item-checkboxes">
@@ -57,7 +62,15 @@
     <!-- subInfo="{{ file.written ? 'All files written' : Files still to write }}" -->
 
     <h3 *ngFor="let candidateFile of file.candidateFiles">
-      <span class="document-name">
+      <span
+        class="document-name"
+        (click)="
+          openFile(
+            utils.convertJSONName(utils.capitaliseString(candidateFile.name)),
+            file.name
+          )
+        "
+      >
         {{ utils.convertJSONName(utils.capitaliseString(candidateFile.name)) }}
       </span>
       <span class="document-checkboxes">
