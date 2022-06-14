@@ -1,7 +1,8 @@
 @import "general";
 
 .container {
-  height: 18vw;
+  // height: 18vw;
+  height: fit-content;
   min-height: 18rem;
   width: 14vw;
   max-width: 15rem;
