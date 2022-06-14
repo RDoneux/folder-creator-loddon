@@ -11,7 +11,7 @@
   comments="{{ comments }}"
   assigned="{{ assigned }}"
   tag="{{ tag }}"
-  files="{{jsonFiles | json}}"
+  files="{{ jsonFiles | json }}"
 ></app-card-modal>
 
 <div
@@ -24,9 +24,11 @@
     <h2 class="title">{{ courseName }}</h2>
     <p class="date">{{ created | date: "dd/MM/yyyy" }}</p>
     <span class="priority">
+
       <app-priority-icon
         fullSize="true"
         priority="{{ priority }}"
+        coursePath="{{ path }}"
       ></app-priority-icon>
     </span>
 
