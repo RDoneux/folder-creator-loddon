@@ -132,17 +132,27 @@ export interface CourseCard {
 
 export interface Files {
   general: GeneralFiles[];
-  candidate: CandidateFiles[];
+  candidate: Candidate[];
 }
 
-interface GeneralFiles {
+export interface GeneralFiles {
   inProgress: string;
   name: string;
   checked: string;
   written: string;
 }
 
-interface CandidateFiles {
+export interface Candidate {
+  inProgress: string;
+  name: string;
+  checked: string;
+  noAttend: string;
+  written: string;
+  signedOff: string;
+  candidateFiles: CandidateFiles[];
+}
+
+export interface CandidateFiles {
   inProgress: string;
   name: string;
   checked: string;

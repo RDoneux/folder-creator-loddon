@@ -22,7 +22,7 @@ export class CourseWorkflowCardComponent implements OnInit {
   @Input() assigned: string;
   @Input() comments: string;
   @Input() tag: string;
-  @Input() files: string;
+  @Input() files;
 
   public jsonFiles: Files;
   public writtenCandidateFiles: number = 0;

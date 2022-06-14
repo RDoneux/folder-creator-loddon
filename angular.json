@@ -27,7 +27,12 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
 
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/package.json",
+              "src/electron.prod.js"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/variables"]
             },
@@ -42,13 +47,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "800kb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",
+                  "maximumError": "8kb"
                 }
               ],
               "fileReplacements": [
@@ -98,7 +103,12 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/package.json",
+              "src/electron.prod.js"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/variables"]
             },

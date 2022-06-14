@@ -11,6 +11,7 @@
   comments="{{ comments }}"
   assigned="{{ assigned }}"
   tag="{{ tag }}"
+  files="{{jsonFiles | json}}"
 ></app-card-modal>
 
 <div
@@ -30,17 +31,19 @@
     </span>
 
     <app-assigned-tag name="{{ assigned }}" fullsize="false"></app-assigned-tag>
+    <div class="completion-tracker">
+      <h3>
+        {{ writtenGeneralFiles }} / {{ jsonFiles.general.length }} General
+        Records Complete
+      </h3>
+      <h3>
+        {{ writtenCandidateFiles }} / {{ jsonFiles.candidate.length }} Candidate
+        Records Complete
+      </h3>
+    </div>
   </div>
   <app-deadline-countdown
     start="{{ created }}"
     end="{{ deadline }}"
   ></app-deadline-countdown>
-
-  <!-- <h1>{{ jsonFiles.general.length }}</h1> -->
-  <div class="completion-tracker">
-  <h3>{{ writtenGeneralFiles }} / {{ jsonFiles.general.length }} General Records Complete</h3>
-  <h3>{{ writtenCandidateFiles }} / {{ jsonFiles.candidate.length }} Candidate Records Complete</h3>
-</div>
-  <!-- <h1>{{ jsonFiles.candidate.length }}</h1> -->
-  <!-- <h1>{{ jsonFiles | json }}</h1> -->
 </div>
