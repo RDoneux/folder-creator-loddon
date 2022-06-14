@@ -72,7 +72,7 @@ export class CardModalComponent implements OnInit {
     ) {
       return;
     }
-    this.cancel.emit('modal-cancel');
+    this.close();
   }
 
   addComment() {
@@ -86,6 +86,7 @@ export class CardModalComponent implements OnInit {
       .post('http://localhost:8080/addComment', formData)
       .subscribe((data) => {});
 
+      console.log("goes through here");
     this.commentsArray.push(
       this.commentText +
         ':::' +
@@ -93,6 +94,7 @@ export class CardModalComponent implements OnInit {
         ':::' +
         this.datepipe.transform(new Date(), 'MM-dd-yyyy|HH:mm')
     );
+    
     this.commentText = '';
   }
 
@@ -102,5 +104,6 @@ export class CardModalComponent implements OnInit {
 
   close(): void {
     this.cancel.emit('modal-cancel');
+    window.location.reload();
   }
 }

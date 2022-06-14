@@ -34,7 +34,7 @@
             </div>
           </div>
           <div class="comment__comment-wrapper">
-            <div *ngIf="comments">
+            <div *ngIf="commentsArray.length > 0">
               <h3
                 class="comment__card"
                 *ngFor="let comment of commentsArray.slice().reverse()"

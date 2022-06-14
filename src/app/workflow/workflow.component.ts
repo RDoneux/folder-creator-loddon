@@ -53,6 +53,7 @@ export class WorkflowComponent implements OnInit {
         event.currentIndex
       );
     }
+    window.location.reload();
   }
   getCourses() {
     this.http.get('http://localhost:8080/getCourses').subscribe((data) => {

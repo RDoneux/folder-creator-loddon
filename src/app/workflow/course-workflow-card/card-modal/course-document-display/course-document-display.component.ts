@@ -134,12 +134,12 @@ export class CourseDocumentDisplayComponent implements OnInit {
       }
     });
 
-    console.log(flaggedCandidate);
+    if (!flaggedCandidate) return;
+
+    console.log("flagged candidate", flaggedCandidate);
     console.log(flaggedCandidate.inProgress);
     console.log(flaggedCandidate.written);
     console.log(flaggedCandidate.checked);
-
-    if (!flaggedCandidate) return;
 
     const formData = new FormData();
     formData.append('path', this.coursePath);
@@ -152,6 +152,8 @@ export class CourseDocumentDisplayComponent implements OnInit {
       .post('http://localhost:8080/updateDocumentWorkFlowCandidate', formData)
       .subscribe((data) => {});
     // need to do an HTTP request - perhaps for all the data.
+
+    return;
   }
 
   updateCheckbox(
@@ -199,6 +201,7 @@ export class CourseDocumentDisplayComponent implements OnInit {
     const checked = event.target.checked.toString();
     files.forEach((file) => {
       if (file.name === name) {
+        console.log(types);
         switch (types) {
           //@ts-ignore
           case 'checked':
