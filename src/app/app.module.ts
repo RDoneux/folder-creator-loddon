@@ -33,6 +33,8 @@ import { ModalComponent } from './modal/modal.component';
 import { CommentComponent } from './workflow/course-workflow-card/card-modal/comment/comment.component';
 import { DatePipe } from '@angular/common';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { CourseDocumentDisplayComponent } from './workflow/course-workflow-card/card-modal/course-document-display/course-document-display.component'
+import {ExpandableMenuComponent} from './workflow/course-workflow-card/card-modal/course-document-display/expandable-menu/expandable-menu.component'
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -62,6 +64,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     ModalComponent,
     CommentComponent,
     TooltipComponent,
+    CourseDocumentDisplayComponent,
+    ExpandableMenuComponent
   ],
   imports: [
     BrowserModule,

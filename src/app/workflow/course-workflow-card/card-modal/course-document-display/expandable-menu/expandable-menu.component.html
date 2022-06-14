@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="title" (click)="toggleExpanded()">
+    <div class="title-info-wrapper">
+      <span class="title-text">{{ title }}</span>
+      <span class="sub-info-text">{{ subInfo }}</span>
+    </div>
+    <i class="fa-solid fa-chevron-down {{ expanded }}"></i>
+  </h1>
+
+  <div class="expandable-content_{{ expanded }} expandable-content ">
+    <div class="wrapper">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

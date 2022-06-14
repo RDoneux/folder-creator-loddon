@@ -1,0 +1,138 @@
+<div #rerender>
+  <app-expandable-menu title="General Files">
+    <h3 *ngFor="let file of jsonFiles.general">
+      <span
+        class="item-name"
+        (click)="
+          openFile(utils.convertJSONName(utils.capitaliseString(file.name)))
+        "
+      >
+        {{ utils.convertJSONName(utils.capitaliseString(file.name)) }}
+      </span>
+      <span class="item-checkboxes">
+        <span class="divide">|</span>
+        <label
+          >In Progress
+          <input
+            type="checkbox"
+            id="progress"
+            (click)="updateCheckbox('general', file.name, 'inProgress', $event)"
+            [checked]="file.inProgress == 'true'"
+          />
+        </label>
+        <span class="divide">|</span>
+        <label>
+          Complete
+          <input
+            id="complete"
+            type="checkbox"
+            (click)="updateCheckbox('general', file.name, 'written', $event)"
+            [checked]="file.written == 'true'"
+          />
+        </label>
+        <span class="divide">|</span>
+        <label>
+          Reviewed
+          <input
+            id="reviewed"
+            type="checkbox"
+            (click)="updateCheckbox('general', file.name, 'checked', $event)"
+            [checked]="file.checked == 'true'"
+          />
+        </label>
+        <span class="divide">|</span>
+      </span>
+    </h3>
+  </app-expandable-menu>
+  <app-expandable-menu
+    *ngFor="let file of jsonFiles.candidate; let i = index"
+    title="{{ utils.convertJSONName(utils.capitaliseString(file.name)) }}"
+    subInfo="{{
+      file.signedOff === 'true'
+        ? 'Candidate has been signed off'
+        : file.checked === 'true'
+        ? 'Records have been reviewed'
+        : file.written === 'true'
+        ? 'Records have been written'
+        : file.inProgress === 'true'
+        ? 'Some records in progress'
+        : 'Records not started'
+    }}"
+  >
+    <!-- subInfo="{{ file.written ? 'All files written' : Files still to write }}" -->
+
+    <h3 *ngFor="let candidateFile of file.candidateFiles">
+      <span
+        class="document-name"
+        (click)="
+          openFile(
+            utils.convertJSONName(utils.capitaliseString(candidateFile.name)),
+            file.name
+          )
+        "
+      >
+        {{ utils.convertJSONName(utils.capitaliseString(candidateFile.name)) }}
+      </span>
+      <span class="document-checkboxes">
+        <span class="divide">|</span>
+        <label
+          >In Progress
+          <input
+            type="checkbox"
+            id="progress"
+            value="inProgress"
+            (click)="
+              updateCheckbox(
+                'candidate',
+                candidateFile.name,
+                'inProgress',
+                $event,
+                i
+              )
+            "
+            [checked]="candidateFile.inProgress == 'true'"
+          />
+        </label>
+        <span class="divide">|</span>
+        <label>
+          Complete
+          <input
+            id="complete"
+            type="checkbox"
+            value="written"
+            (click)="
+              updateCheckbox(
+                'candidate',
+                candidateFile.name,
+                'written',
+                $event,
+                i
+              )
+            "
+            [checked]="candidateFile.written == 'true'"
+          />
+        </label>
+        <span class="divide">|</span>
+        <label>
+          Reviewed
+          <input
+            id="reviewed"
+            type="checkbox"
+            value="checked"
+            (click)="
+              updateCheckbox(
+                'candidate',
+                candidateFile.name,
+                'checked',
+                $event,
+                i
+              )
+            "
+            [checked]="candidateFile.checked == 'true'"
+          />
+        </label>
+        <span class="divide">|</span>
+      </span>
+    </h3>
+  </app-expandable-menu>
+</div>

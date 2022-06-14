@@ -11,19 +11,39 @@
   comments="{{ comments }}"
   assigned="{{ assigned }}"
   tag="{{ tag }}"
+  files="{{jsonFiles | json}}"
 ></app-card-modal>
-<div class="container" draggable="true" (click)="displayModal(true)">
-  <h2 class="title">{{ courseName }}</h2>
-  <p class="description">{{ created | date: "dd/MM/yyyy" }}</p>
-  <span class="priority"
-    >priority: <app-priority-icon priority="{{ priority }}"></app-priority-icon
-  ></span>
+
+<div
+  class="container"
+  [ngStyle]="{ 'border-color': cardColour }"
+  draggable="true"
+  (click)="displayModal(true)"
+>
+  <div>
+    <h2 class="title">{{ courseName }}</h2>
+    <p class="date">{{ created | date: "dd/MM/yyyy" }}</p>
+    <span class="priority">
+      <app-priority-icon
+        fullSize="true"
+        priority="{{ priority }}"
+      ></app-priority-icon>
+    </span>
+
+    <app-assigned-tag name="{{ assigned }}" fullsize="false"></app-assigned-tag>
+    <div class="completion-tracker">
+      <h3>
+        {{ writtenGeneralFiles }} / {{ jsonFiles.general.length }} General
+        Records Complete
+      </h3>
+      <h3>
+        {{ writtenCandidateFiles }} / {{ jsonFiles.candidate.length }} Candidate
+        Records Complete
+      </h3>
+    </div>
+  </div>
   <app-deadline-countdown
     start="{{ created }}"
     end="{{ deadline }}"
   ></app-deadline-countdown>
-
-  <app-assigned-tag
-  name="{{ assigned }}"
-  fullsize="false"
-></app-assigned-tag></div>
+</div>

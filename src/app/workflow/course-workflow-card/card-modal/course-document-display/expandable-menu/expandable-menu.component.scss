@@ -1,0 +1,63 @@
+@import "general";
+
+.container {
+  .title {
+    margin: 0;
+    padding: 0.8rem 2rem;
+    background: $side-tabs-background-colour;
+    border: 1px solid gray;
+    z-index: 1;
+    box-shadow: 0 3px 2px gray;
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+
+    .title-info-wrapper {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+
+      .title-text {
+        font-family: $default-font;
+        font-size: $font-size-very-large;
+      }
+
+      .sub-info-text {
+        font-family: $default-font;
+        font-size: $font-size-medium;
+      }
+    }
+
+    i {
+      transition: transform 350ms ease-in-out;
+      transform-origin: 50%;
+    }
+
+    i.hidden {
+      transform: rotate(0deg);
+    }
+    i.show {
+      transform: rotate(180deg);
+    }
+  }
+
+  .expandable-content {
+    overflow-y: auto;
+    transition: max-height 400ms ease-in-out;
+    background: $main-moustache-colour;
+    z-index: 0;
+    position: relative;
+
+    .wrapper {
+    }
+  }
+
+  .expandable-content_hidden {
+    max-height: 0;
+  }
+
+  .expandable-content_show {
+    max-height: 500px;
+  }
+}

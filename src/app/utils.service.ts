@@ -1,6 +1,4 @@
-// import { TemplateBindingParseResult } from '@angular/compiler';
 import { Injectable } from '@angular/core';
-import { User } from './user-management/user-management.component';
 
 @Injectable({
   providedIn: 'root',
@@ -43,5 +41,13 @@ export class UtilsService {
       }
     }
     return false;
+  }
+
+  replaceAll(line: string, characterToReplace: string[], replaceWidth: string) {
+    var returnline: string = line;
+    characterToReplace.forEach((replace) => {
+      returnline = returnline.split(replace).join("");
+    })
+    return returnline;
   }
 }

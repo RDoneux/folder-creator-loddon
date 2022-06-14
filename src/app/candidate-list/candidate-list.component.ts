@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { Information } from '../additional-information/additional-information.component';
 import { AlertComponent } from '../alert/alert.component';
+import { UtilsService } from '../utils.service';
 
 @Component({
   selector: 'app-candidate-list',
@@ -26,7 +27,7 @@ export class CandidateListComponent implements OnInit {
 
   errorMessage: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public utils: UtilsService) {}
 
   ngOnInit(): void {
     this.getCurrentSettings();
@@ -35,11 +36,10 @@ export class CandidateListComponent implements OnInit {
   getCurrentSettings() {
     this.http.get<any>('http://localhost:8080/settings').subscribe((data) => {
       const coursesTemp = data.courseRequirements;
-
       coursesTemp.forEach((data) => {
         this.courses.push(data.name);
       });
-      this.selectedCourse = data.courseRequirements[0];
+      this.selectedCourse = data.courseRequirements[0].name;
     });
   }
 
@@ -69,6 +69,7 @@ export class CandidateListComponent implements OnInit {
   }
   handleCourseTypeChange(courseType: any) {
     this.selectedCourse = courseType.target.value;
+    console.log(this.selectedCourse);
   }
 
   submitCandidates() {

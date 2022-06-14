@@ -53,17 +53,20 @@ export class WorkflowComponent implements OnInit {
         event.currentIndex
       );
     }
+    window.location.reload();
   }
   getCourses() {
     this.http.get('http://localhost:8080/getCourses').subscribe((data) => {
       const input: CardContainer = <CardContainer>data;
       this.cards = <CourseCard[]>input.files;
 
+    console.log("caaaaaaaaaaaaaaaaaaaaaaaaaaaards", this.cards);
+
       for (var i = 0; i < this.cards.length; i++) {
         const card: CourseCard = this.cards[i];
         // this.cards.files[i].people = JSON.parse(this.cards.files[i].people);
         // console.log(JSON.parse(this.cards.files[i].people));
-        console.log(card.comments)
+        console.log(card.files);
         switch (card.tag.toLowerCase()) {
           case 'courses':
             this.tracks[0].cards.push(card);
@@ -127,6 +130,38 @@ export interface CourseCard {
   date: string;
   deadline: string;
   path: string;
+  files: Files[];
+}
+
+export interface Files {
+  general: GeneralFiles[];
+  candidate: Candidate[];
+}
+
+export interface GeneralFiles {
+  inProgress: string;
+  name: string;
+  checked: string;
+  written: string;
+}
+
+export interface Candidate {
+  inProgress: string;
+  name: string;
+  checked: string;
+  noAttend: string;
+  written: string;
+  signedOff: string;
+  candidateFiles: CandidateFiles[];
+}
+
+export interface CandidateFiles {
+  inProgress: string;
+  name: string;
+  checked: string;
+  noAttend: string;
+  written: string;
+  signedOff: string;
 }
 
 interface CardContainer {

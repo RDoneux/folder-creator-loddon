@@ -12,6 +12,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 import { UtilsService } from 'src/app/utils.service';
+import { Files } from '../../workflow.component';
 
 @Component({
   selector: 'app-card-modal',
@@ -32,13 +33,15 @@ export class CardModalComponent implements OnInit {
   @Input() priority: string;
   @Input() tag: string;
   @Input() coursePath: string;
+  @Input() files;
 
   commentsArray: string[];
+  jsonFiles: Files;
 
   commentText: string;
 
   constructor(
-    private utils: UtilsService,
+    public utils: UtilsService,
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
@@ -55,8 +58,10 @@ export class CardModalComponent implements OnInit {
     this.courseDate = this.utils.reverseDate(this.courseDate);
     this.courseDeadline = this.utils.reverseDate(this.courseDeadline);
     this.courseCreated = this.utils.reverseDate(this.courseCreated);
-  }
+    this.jsonFiles = JSON.parse(this.files);
 
+    console.log(this.jsonFiles);
+  }
   handleCancel(event: MouseEvent) {
     const bounds = this.content.nativeElement.getBoundingClientRect();
     if (
@@ -67,7 +72,7 @@ export class CardModalComponent implements OnInit {
     ) {
       return;
     }
-    this.cancel.emit('modal-cancel');
+    this.close();
   }
 
   addComment() {
@@ -81,6 +86,7 @@ export class CardModalComponent implements OnInit {
       .post('http://localhost:8080/addComment', formData)
       .subscribe((data) => {});
 
+      console.log("goes through here");
     this.commentsArray.push(
       this.commentText +
         ':::' +
@@ -88,6 +94,7 @@ export class CardModalComponent implements OnInit {
         ':::' +
         this.datepipe.transform(new Date(), 'MM-dd-yyyy|HH:mm')
     );
+    
     this.commentText = '';
   }
 
@@ -97,5 +104,6 @@ export class CardModalComponent implements OnInit {
 
   close(): void {
     this.cancel.emit('modal-cancel');
+    window.location.reload();
   }
 }
