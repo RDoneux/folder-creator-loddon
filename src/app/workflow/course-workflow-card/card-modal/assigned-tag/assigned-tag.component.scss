@@ -1,14 +1,29 @@
 @import "general";
 
 .container {
-  // padding: 1rem;
+  padding: 1rem;
   display: flex;
+
+  align-items: center;
+  justify-content: center;
   height: 4rem;
-  padding: 0.5rem;
+  // padding: 0.5rem;
   // background: yellow;
 
   border-top: 1px solid $default-border-colour;
   border-bottom: 1px solid $default-border-colour;
+
+  .top-left-tag {
+    width: 50px;
+    height: 100px;
+    background: yellow;
+    position: absolute;
+    top: -38px;
+    left: -7px;
+
+    transform: rotate(45deg);
+    box-shadow: $box-shadow-light;
+  }
 
   .header {
     font-family: $default-font;
@@ -16,22 +31,26 @@
   }
 
   .name-wrapper {
-    padding: 1rem;
-    background: green;
+    padding: 0.5rem;
+    text-align: center;
+    // background: green;
+    max-width: 10rem;
     border-radius: 2rem;
     font-family: $default-font;
-    font-size: $font-size-large;
+    font-size: $font-size-very-large;
+    display: inline-block;
 
     color: white;
 
-    box-shadow: 2px 2px 2px gray;
+    box-shadow: $box-shadow-light;
+    // border: 1px solid rgb(78, 78, 78);
 
     user-select: none;
   }
 
   .user-input-wrapper {
     position: relative;
-    margin-left: 3rem;
+    margin-left: 1rem;
     width: 70%;
     display: flex;
 
@@ -52,7 +71,7 @@
   .user-search__dropdown {
     transition: max-height 800ms ease-in-out;
     overflow-y: hidden;
-    top: 6px;
+    top: 0;
     right: 0;
     padding: 0.6rem;
 
@@ -105,12 +124,11 @@
 }
 
 .container-small {
-  padding: .5rem;
-  margin: .5rem;
-  margin-top: .5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  margin-top: 0.5rem;
 
   text-align: center;
-  
 }
 
 .name-wrapper-small {

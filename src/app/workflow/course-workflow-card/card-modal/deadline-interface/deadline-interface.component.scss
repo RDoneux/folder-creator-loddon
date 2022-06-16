@@ -1,0 +1,18 @@
+@import "general";
+
+.container {
+  .title {
+    display: inline-block;
+    width: 19rem;
+    font-family: $default-font;
+    font-size: $font-size-very-large;
+  }
+
+  .date-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: $default-font;
+    font-size: $font-size-large;
+  }
+}

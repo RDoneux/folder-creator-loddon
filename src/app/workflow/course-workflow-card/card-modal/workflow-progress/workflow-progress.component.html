@@ -1,9 +1,44 @@
 <div class="container">
-  <i class="fa-solid fa-check progress-chevron {{ progress[0] }}"></i>
-  <i class="fa-solid fa-check progress-chevron {{ progress[1] }}"></i>
-  <i class="fa-solid fa-check progress-chevron {{ progress[2] }}"></i>
-  <i class="fa-solid fa-check progress-chevron {{ progress[3] }}"></i>
-  <i class="fa-solid fa-check progress-chevron {{ progress[4] }}"></i>
-  <div *ngIf="progress[4] == 'done'" class="completed">
+  <h2>Course Progress</h2>
+  <div class="wrapper">
+    <div *ngIf="progress[4] == 'todo'" class="wrapper">
+
+
+      <i
+        *ngIf="progress[0] == 'done'"
+        class="fa-solid fa-check progress-chevron {{ progress[0] }}">
+      </i>
+      <i *ngIf="progress[0] == 'todo'" class="fa-solid fa-ellipsis"></i>
+      <i class="fa-solid fa-arrow-right"></i>
+
+
+      <i
+        *ngIf="progress[1] == 'done'"
+        class="fa-solid fa-check progress-chevron {{ progress[1] }}">
+      </i>
+      <i *ngIf="progress[1] == 'todo'" class="fa-solid fa-ellipsis"></i>
+      <i class="fa-solid fa-arrow-right"></i>
+
+
+      <i
+        *ngIf="progress[2] == 'done'"
+        class="fa-solid fa-check progress-chevron {{ progress[2] }}">
+      </i>
+      <i *ngIf="progress[2] == 'todo'" class="fa-solid fa-ellipsis"></i>
+      <i class="fa-solid fa-arrow-right"></i>
+
+
+      <i
+        *ngIf="progress[3] == 'done'"
+        class="fa-solid fa-check progress-chevron {{ progress[3] }}">
+      </i>
+      <i *ngIf="progress[3] == 'todo'" class="fa-solid fa-ellipsis"></i>
+      <i class="fa-solid fa-arrow-right"></i>
+
+      <i class="fa-solid fa-ellipsis"></i>
+    </div>
+    <div *ngIf="progress[4] == 'done'" class="completed">
+      <span>RECORDS COMPLETE</span>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div *ngIf="fullSize == 'false'" class="container {{ priority }}">
+<div *ngIf="fullSize == 'false'" class="container full-size {{ priority }}">
   <span>{{ priority.toUpperCase() }}</span>
 </div>
 <div *ngIf="fullSize == 'true'" class="container full-size {{ priority }}" (click)="changePriority()">

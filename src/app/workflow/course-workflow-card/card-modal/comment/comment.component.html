@@ -4,14 +4,14 @@
       {{ user.initials }}
     </div>
     <span class="break">:</span>
-    <textarea
+    <div
+    contenteditable="!edit"
       type="text"
       class="comment"
-      [readonly]="!edit"
       rows="1"
       [(ngModel)]="comment"
-    ></textarea>
-    <i class="fa-solid fa-pen-to-square edit" (click)="toggleEdit()"></i>
+    >{{comment}}</div>
+    <!-- <i class="fa-solid fa-pen-to-square edit" (click)="toggleEdit()"></i> -->
   </div>
   <div class="sub-content-wrapper">
     {{ date }}

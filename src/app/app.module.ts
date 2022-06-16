@@ -31,10 +31,12 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserIconComponent } from './user-management/user-icon/user-icon.component';
 import { ModalComponent } from './modal/modal.component';
 import { CommentComponent } from './workflow/course-workflow-card/card-modal/comment/comment.component';
-import { DatePipe } from '@angular/common';
+import { DatePipe, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TooltipComponent } from './tooltip/tooltip.component';
-import { CourseDocumentDisplayComponent } from './workflow/course-workflow-card/card-modal/course-document-display/course-document-display.component'
-import {ExpandableMenuComponent} from './workflow/course-workflow-card/card-modal/course-document-display/expandable-menu/expandable-menu.component'
+import { CourseDocumentDisplayComponent } from './workflow/course-workflow-card/card-modal/course-document-display/course-document-display.component';
+import { ExpandableMenuComponent } from './workflow/course-workflow-card/card-modal/course-document-display/expandable-menu/expandable-menu.component';
+import { CourseDescriptionComponent } from './course-description/course-description.component';
+import { DeadlineInterfaceComponent } from './workflow/course-workflow-card/card-modal/deadline-interface/deadline-interface.component';
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -65,7 +67,9 @@ import {ExpandableMenuComponent} from './workflow/course-workflow-card/card-moda
     CommentComponent,
     TooltipComponent,
     CourseDocumentDisplayComponent,
-    ExpandableMenuComponent
+    ExpandableMenuComponent,
+    CourseDescriptionComponent,
+    DeadlineInterfaceComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,11 @@ import {ExpandableMenuComponent} from './workflow/course-workflow-card/card-moda
     DragDropModule,
     BrowserAnimationsModule,
   ],
-  providers: [CookieService, DatePipe],
+  providers: [
+    CookieService,
+    DatePipe,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -10,6 +10,8 @@
     >
       <h2>{{ track.title }}</h2>
 
+      <!-- <pre *ngFor="let card of track.cards">{{card.name}} : {{card.description}}</pre> -->
+
       <app-course-workflow-card
         *ngFor="let card of track.cards"
         cdkDrag
@@ -24,7 +26,7 @@
         comments="{{ card.comments }}"
         assigned="{{ card.assigned }}"
         tag="{{ card.tag }}"
-        description="this is the course description, it can be fairly simple to be honest"
+        description="{{ card.description }}"
         files="{{ card.files | json }}"
       >
         <div class="example-custom-placeholder" *cdkDragPlaceholder></div>

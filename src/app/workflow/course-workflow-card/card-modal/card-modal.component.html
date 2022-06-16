@@ -1,5 +1,6 @@
 <div class="container" (click)="handleCancel($event)">
   <div #content class="content">
+
     <i class="fa-solid fa-xmark close" (click)="close()"></i>
 
     <div class="title-wrapper">
@@ -8,10 +9,11 @@
     </div>
     <div class="main-content-wrapper">
       <div class="course-information-wrapper">
-        <div class="course-information">
-          <h4>Course Description</h4>
-          <p>{{ description }}</p>
-        </div>
+        <app-course-description
+          title="Course Description"
+          description="{{ description }}"
+          coursePath="{{ coursePath }}"
+        ></app-course-description>
         <div class="comments-wrapper">
           <div class="comment-title__input-wrapper">
             <label class="comment-input__label" for="comment-input">
@@ -20,6 +22,7 @@
             <div class="comment__input-wrapper">
               <input
                 class="comment-input__field"
+                autocomplete="off"
                 id="comment-input"
                 type="text"
                 [(ngModel)]="commentText"
@@ -33,16 +36,17 @@
               />
             </div>
           </div>
-          <div class="comment__comment-wrapper">
-            <div *ngIf="commentsArray.length > 0">
-              <h3
-                class="comment__card"
-                *ngFor="let comment of commentsArray.slice().reverse()"
-              >
-                <app-comment value="{{ comment }}"></app-comment>
-                <!-- TODO: add delete and edit -->
-              </h3>
-            </div>
+          <div
+            class="comment__comment-wrapper"
+            *ngIf="commentsArray.length > 0"
+          >
+            <h3
+              class="comment__card"
+              *ngFor="let comment of commentsArray.slice().reverse()"
+            >
+              <app-comment value="{{ comment }}"></app-comment>
+              <!-- TODO: add delete and edit -->
+            </h3>
           </div>
         </div>
       </div>
@@ -60,7 +64,11 @@
           fullsize="true"
         ></app-assigned-tag>
         <div class="date-wrapper">
-          <h4><span>Deadline for records:</span>{{ courseDeadline }}</h4>
+          <app-deadline-interface
+            deadline="{{ courseDeadline }}"
+            path="{{ coursePath }}"
+          ></app-deadline-interface>
+          <!-- <h4><span>Deadline for records:</span>{{ courseDeadline }}</h4> -->
           <h4><span>Course created on:</span>{{ courseCreated }}</h4>
         </div>
       </div>
@@ -69,7 +77,7 @@
       class="priority-info"
       fullSize="true"
       priority="{{ priority }}"
-      coursePath="{{coursePath}}"
+      coursePath="{{ coursePath }}"
     ></app-priority-icon>
 
     <app-course-document-display

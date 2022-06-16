@@ -4,6 +4,7 @@ $main-moustache-colour: rgb(179, 179, 179);
 $modal-background-colour: rgba(0, 0, 0, 0.7);
 
 $default-background-colour: rgb(189, 189, 189);
+$default-modal-background-colour: rgb(214, 214, 214);
 $default-border-colour: rgb(131, 131, 131);
 
 $default-button-hover-colour: rgb(255, 53, 53);
@@ -38,13 +39,14 @@ $z-index-dropdown: 400;
 $z-index-modal: 500;
 
 // font-sizes
+$header-font-size-super: 4rem;
 $header-font-size-very-large: 2.2rem;
 $header-font-size-large : 2rem;
 $header-font-size-medium: 1.8rem;
 $header-font-size-small: 1.6rem;
 
 $font-size-very-large: 1.4rem;
-$font-size-large: 1.2;
+$font-size-large: 1.2rem;
 $font-size-medium: 1rem;
 $font-size-small: 0.8rem;
 $font-size-very-small: 0.6rem;

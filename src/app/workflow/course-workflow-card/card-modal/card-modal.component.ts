@@ -51,7 +51,6 @@ export class CardModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.commentsArray = this.comments.split(',');
-    console.log('comments array: ', this.commentsArray);
     this.courseName = this.utils.capitaliseString(
       this.utils.convertJSONName(this.courseName)
     );
@@ -59,8 +58,6 @@ export class CardModalComponent implements OnInit {
     this.courseDeadline = this.utils.reverseDate(this.courseDeadline);
     this.courseCreated = this.utils.reverseDate(this.courseCreated);
     this.jsonFiles = JSON.parse(this.files);
-
-    console.log(this.jsonFiles);
   }
   handleCancel(event: MouseEvent) {
     const bounds = this.content.nativeElement.getBoundingClientRect();
@@ -85,8 +82,6 @@ export class CardModalComponent implements OnInit {
     this.http
       .post('http://localhost:8080/addComment', formData)
       .subscribe((data) => {});
-
-      console.log("goes through here");
     this.commentsArray.push(
       this.commentText +
         ':::' +
@@ -94,7 +89,7 @@ export class CardModalComponent implements OnInit {
         ':::' +
         this.datepipe.transform(new Date(), 'MM-dd-yyyy|HH:mm')
     );
-    
+
     this.commentText = '';
   }
 
