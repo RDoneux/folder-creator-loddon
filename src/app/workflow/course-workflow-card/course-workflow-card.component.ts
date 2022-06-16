@@ -30,9 +30,12 @@ export class CourseWorkflowCardComponent implements OnInit {
 
   cardModalShow: boolean = false;
   cardColour: string = 'rgb(0,0,0)';
-  constructor(private utils: UtilsService, private userService: UserService) {}
+  constructor(private utils: UtilsService, private userService: UserService) {
+  }
 
   ngOnInit(): void {
+    console.log("this is the description at the course wofkfow card level", this.description)
+
     this.courseName = this.utils.capitaliseString(
       this.utils.convertJSONName(this.courseName)
     );

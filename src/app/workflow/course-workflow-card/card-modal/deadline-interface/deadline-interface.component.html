@@ -1,0 +1,13 @@
+<div class="container">
+  <label class="title" for="dateInput">Course Deadline: </label>
+    <input
+      class="date-input"
+      id="dateInput"
+      (change)="handleDateChange()"
+      ngDefaultControl
+      type="date"
+      name="fieldName"
+      ngDefaultControl
+      [(ngModel)]="formattedDate"
+    />
+</div>

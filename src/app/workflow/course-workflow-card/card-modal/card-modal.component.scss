@@ -4,7 +4,6 @@
   width: 100vw;
   height: 100vh;
   background: $modal-background-colour;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -19,7 +18,10 @@
 
     position: relative;
 
-    background: $default-background-colour;
+    // background: $default-modal-background-colour;
+
+    background: rgb(198,198,198);
+    // background: linear-gradient(180deg, rgba(198,198,198,1) 0%, rgba(148,148,148,1) 100%);
 
     padding: 1rem;
 
@@ -67,28 +69,37 @@
         width: 50%;
         height: 100%;
 
-        .course-information {
-          height: 20%;
-          width: 100%;
-          padding: 1rem;
-          border-left: 5px solid gray;
-          overflow-y: auto;
-          h4 {
-            margin: 0;
-          }
-          p {
-            margin: 0;
-          }
-        }
+        // .course-information {
+        //   height: 20%;
+        //   width: 100%;
+        //   padding: 1rem;
+        //   border-left: 5px solid gray;
+        //   overflow-y: auto;
+        //   h4 {
+        //     margin: 0;
+        //   }
+        //   p {
+        //     margin: 0;
+        //   }
+        // }
         .comments-wrapper {
           width: 100%;
+          margin-top: 2%;
+          // height: fit-content;
+          // max-height: 70%;
+          // min-height: 40%;
+          // min-height: 5%;
           height: 80%;
           padding: 1rem;
-          border-top: 2px solid gray;
+          overflow-y: auto;
+          border-top: 1px solid $default-border-colour;
+          // background: purple;
+          // border-top: 2px solid gray;
           .comment-title__input-wrapper {
             width: 100%;
-            height: 25%;
-            max-height: fit-content;
+            // height: 4.6rem;
+            // max-height: fit-content;
+
             .comment__input-wrapper {
               border-radius: 8px;
               min-height: 2rem;
@@ -103,7 +114,7 @@
               }
               .comment-input__field {
                 padding: 0.4rem;
-                min-height: 1.8rem;
+                // min-height: 1.8rem;
                 border: none;
                 box-shadow: 0 3px 4px rgba($box-shadow-colour-light, 0);
                 border-radius: 8px;
@@ -133,8 +144,11 @@
             }
           }
           .comment__comment-wrapper {
-            overflow-y: auto;
-            height: 75%;
+            // overflow-y: auto;
+            height: 100%;
+            // min-height:5%;
+            // max-height: 100%;
+            // margin-top: 0.3rem;
           }
         }
       }
@@ -144,16 +158,17 @@
         height: 100%;
 
         .course-folder-wrapper {
-
           padding: 1rem;
 
-          h2, h3 {
+          h2,
+          h3 {
             margin: 0;
             padding: 0;
+            font-family: $default-font;
           }
           .course-folder-button {
             @include button;
-            padding: .3rem 0;
+            padding: 0.3rem 0;
             width: 8rem;
           }
         }

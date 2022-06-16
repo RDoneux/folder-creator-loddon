@@ -22,7 +22,7 @@ const createWindow = () => {
         win.loadURL(url.format({
             pathname: 'localhost:4200',
             protocol: 'http:',
-            slashes: true
+            slashes: true,
         }));
 
         win.webContents.openDevTools();

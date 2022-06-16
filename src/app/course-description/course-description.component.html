@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="title">{{ title }}</h1>
+  <textarea
+    contenteditable="true"
+    placeholder="Use this space to outline any unusual aspects associated with this course."
+    class="content"
+    rows="3"
+    maxlength="430" 
+    wrap="hard"
+    [(ngModel)]="textContent"
+    (focusout)="save()"
+    ></textarea
+  >
+</div>

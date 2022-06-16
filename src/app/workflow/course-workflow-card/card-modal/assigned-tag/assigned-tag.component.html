@@ -1,4 +1,11 @@
 <div *ngIf="fullsize == 'true'" class="container">
+  <div
+    class="top-left-tag"
+    [ngStyle]="{
+      background: assignedUser ? assignedUser.colour : unassignedColour
+    }"
+  ></div>
+
   <!-- <h3 class="header">Assigned to:</h3> -->
   <span
     class="name-wrapper"
