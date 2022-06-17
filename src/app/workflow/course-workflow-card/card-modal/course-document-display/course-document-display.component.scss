@@ -1,55 +1,62 @@
 @import "general";
 
-h3 {
-  border-bottom: 1px solid gray;
-  padding: 0 1rem;
-  margin: 0;
-  font-family: $default-font;
+.container {
+  min-height: 100%;
+  h3 {
+    border-bottom: 1px solid gray;
+    padding: 0 1rem;
+    margin: 0;
+    font-family: $default-font;
 
-  transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
 
-  .item-name {
-    display: inline-block;
-    width: 60%;
-    padding: 0.5rem 2rem;
+    .item-name {
+      display: inline-block;
+      width: 60%;
+      padding: 0.5rem 2rem;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    .item-checkboxes {
+      display: inline-block;
+      width: 35%;
+
+      label {
+        padding-left: 1rem;
+      }
+    }
+
+    .document-name {
+      display: inline-block;
+      width: 60%;
+      padding: 0.5rem 2rem;
+      &:hover {
+        color: white;
+      }
+    }
+
+    .document-checkboxes {
+      display: inline-block;
+      width: 35%;
+    }
+
+    .divide {
+      display: inline-block;
+      width: 1rem;
+      text-align: center;
+    }
 
     &:hover {
-      color: white;
+      background: rgb(192, 192, 192);
     }
-  }
 
-  .item-checkboxes {
-    display: inline-block;
-    width: 35%;
-
-    label {
-      padding-left: 1rem;
+    &::before {
+      content: "\f15b";
+      font-family: "Font Awesome 6 Free";
+      padding-right: 0.5rem;
     }
-  }
-
-  .document-name {
-    display: inline-block;
-    width: 60%;
-  }
-
-  .document-checkboxes {
-    display: inline-block;
-    width: 35%;
-  }
-
-  .divide {
-    display: inline-block;
-    width: 1rem;
-    text-align: center;
-  }
-
-  &:hover {
-    background: rgb(192, 192, 192);
-  }
-
-  &::before {
-    content: "\f15b";
-    font-family: "Font Awesome 6 Free";
-    padding-right: 0.5rem;
   }
 }

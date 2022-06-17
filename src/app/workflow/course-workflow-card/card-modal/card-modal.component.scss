@@ -20,7 +20,7 @@
 
     // background: $default-modal-background-colour;
 
-    background: rgb(198,198,198);
+    background: rgb(198, 198, 198);
     // background: linear-gradient(180deg, rgba(198,198,198,1) 0%, rgba(148,148,148,1) 100%);
 
     padding: 1rem;
@@ -154,8 +154,9 @@
       }
 
       .workflow-information-wrapper {
-        width: 45%;
+        width: 48%;
         height: 100%;
+        // overflow-y: scroll;
 
         .course-folder-wrapper {
           padding: 1rem;
@@ -172,17 +173,35 @@
             width: 8rem;
           }
         }
-        .date-wrapper {
-          padding: 1rem;
-          margin-top: 2rem;
+        .bottom-info-wrapper {
+          overflow-y: auto;
+          max-height: 35%;
+          .date-wrapper {
+            padding: 1rem;
+            margin-top: 2rem;
 
-          h4 {
-            padding: 0;
-            margin: 0;
+            h4 {
+              padding: 0;
+              margin: 0;
+            }
+            span {
+              display: inline-block;
+              width: 50%;
+            }
           }
-          span {
+          .view-documents {
             display: inline-block;
-            width: 50%;
+            width: 100%;
+            background: rgb(255, 255, 72);
+            padding: 1rem;
+            text-decoration: none;
+            color: black;
+            font-family: $default-font;
+            font-size: $font-size-large;
+            text-align: center;
+            &:hover {
+              background: rgb(255, 255, 20);
+            }
           }
         }
       }

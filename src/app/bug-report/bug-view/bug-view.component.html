@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="bug-container" *ngFor="let bug of bugs.slice().reverse()" [ngClass]="bug.type">
+    <h1>{{ bug.title }}</h1>
+    <div class="bug-description" contenteditable="true">
+      {{ bug.description }}
+    </div>
+    <div class="symbol-container">
+      <i *ngIf="bug.type == 'Bug'" class="fa-solid fa-bug"></i>
+      <i *ngIf="bug.type == 'Feature'" class="fa-solid fa-lightbulb"></i>
+    </div>
+  </div>
+</div>

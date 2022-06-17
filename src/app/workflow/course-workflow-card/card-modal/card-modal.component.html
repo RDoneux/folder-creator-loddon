@@ -1,6 +1,5 @@
 <div class="container" (click)="handleCancel($event)">
   <div #content class="content">
-
     <i class="fa-solid fa-xmark close" (click)="close()"></i>
 
     <div class="title-wrapper">
@@ -63,13 +62,17 @@
           coursePath="{{ coursePath }}"
           fullsize="true"
         ></app-assigned-tag>
-        <div class="date-wrapper">
-          <app-deadline-interface
-            deadline="{{ courseDeadline }}"
-            path="{{ coursePath }}"
-          ></app-deadline-interface>
-          <!-- <h4><span>Deadline for records:</span>{{ courseDeadline }}</h4> -->
-          <h4><span>Course created on:</span>{{ courseCreated }}</h4>
+        <div class="bottom-info-wrapper">
+          <div class="date-wrapper">
+            <app-deadline-interface
+              deadline="{{ courseDeadline }}"
+              path="{{ coursePath }}"
+            ></app-deadline-interface>
+            <h4><span>Course created on:</span>{{ courseCreated }}</h4>
+          </div>
+          <a href="#courseDocumentDisplay"
+            ><h4 class="view-documents">View Course Documents</h4></a
+          >
         </div>
       </div>
     </div>
@@ -81,6 +84,7 @@
     ></app-priority-icon>
 
     <app-course-document-display
+      id="courseDocumentDisplay"
       files="{{ jsonFiles | json }}"
       coursePath="{{ coursePath }}"
     ></app-course-document-display>

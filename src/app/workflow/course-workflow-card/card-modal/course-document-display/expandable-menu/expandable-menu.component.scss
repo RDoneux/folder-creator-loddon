@@ -1,6 +1,12 @@
 @import "general";
 
 .container {
+  &:hover {
+    .expandable-content_hidden {
+      max-height: 0.5rem;
+      transition: max-height 100ms ease-in-out;
+    }
+  }
   .title {
     margin: 0;
     padding: 0.8rem 2rem;
@@ -42,9 +48,9 @@
     }
   }
 
-  .expandable-content {
+  .expandable-content,
+  .expandable-content:active {
     overflow-y: auto;
-    transition: max-height 400ms ease-in-out;
     background: $main-moustache-colour;
     z-index: 0;
     position: relative;
@@ -55,9 +61,11 @@
 
   .expandable-content_hidden {
     max-height: 0;
+    transition: max-height 400ms ease-in-out;
   }
 
   .expandable-content_show {
     max-height: 500px;
+    transition: max-height 400ms ease-in-out;
   }
 }

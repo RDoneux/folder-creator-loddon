@@ -1,0 +1,68 @@
+@import "general";
+
+.container {
+  width: 100%;
+  height: 10%;
+  min-height: 4rem;
+  background: $main-moustache-colour;
+  box-shadow: $box-shadow-light;
+
+  padding: 0.2rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  label {
+    font-family: $default-font;
+    font-size: $font-size-large;
+  }
+
+  .report-title {
+    width: 17%;
+    text-align: center;
+
+    input {
+      padding: 0.5rem;
+      border-radius: 15px;
+      outline: none;
+      border: 1px solid $default-border-colour;
+      font-family: $default-font;
+    }
+  }
+
+  .report-description {
+    width: 70%;
+    text-align: center;
+
+    textarea {
+      height: 100%;
+      border-radius: 10px;
+      font-family: $default-font;
+    }
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    justify-content: space-evenly;
+
+    select {
+      padding: 0.5rem;
+      border-radius: 15px;
+      font-family: $default-font;
+    }
+  }
+
+  .save {
+    width: 5%;
+    justify-content: flex-end;
+    input {
+        padding: .63rem;
+        border-radius: 15px;
+        border: 1px solid $default-border-colour;
+        outline: none;
+    }
+  }
+}

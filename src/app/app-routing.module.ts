@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BugReportComponent } from './bug-report/bug-report.component';
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
 import { FeatureRequiredComponent } from './feature-required/feature-required.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'workflows', component: WorkflowComponent },
   { path: 'users', component: UserManagementComponent },
   { path: 'no-feature', component: FeatureRequiredComponent },
+  { path: 'bug-report', component: BugReportComponent },
 ];
 
 @NgModule({

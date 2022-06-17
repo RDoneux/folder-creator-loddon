@@ -15,10 +15,10 @@ export class WorkflowComponent implements OnInit {
   cards: CourseCard[];
   trackNames: string[] = [
     'Courses',
-    'Being written',
-    'Require 2nd Review',
+    'Being Written',
+    '2nd Review',
     'Final Sign off',
-    'Ready for admin',
+    'Ready for Admin',
   ];
   tracks: Array<Track> = new Array<Track>(this.trackNames.length);
 

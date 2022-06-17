@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="input-wrapper report-title">
+    <label for="title">Report Title</label>
+    <input id="title" type="text" [(ngModel)]="title" />
+  </div>
+
+  <div class="input-wrapper report-description">
+    <label for="description">Report Description</label>
+    <textarea id="description" [(ngModel)]="description"></textarea>
+  </div>
+
+  <div class="input-wrapper">
+    <label for="type">Type</label>
+    <select class="select" [(ngModel)]="type">
+      <option class="bug">Bug</option>
+      <option class="feature">Feature</option>
+    </select>
+  </div>
+
+  <div class="input-wrapper save">
+    <input type="button" value="Save" (click)="save()" />
+  </div>
+</div>

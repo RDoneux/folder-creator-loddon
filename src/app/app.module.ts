@@ -37,6 +37,9 @@ import { CourseDocumentDisplayComponent } from './workflow/course-workflow-card/
 import { ExpandableMenuComponent } from './workflow/course-workflow-card/card-modal/course-document-display/expandable-menu/expandable-menu.component';
 import { CourseDescriptionComponent } from './course-description/course-description.component';
 import { DeadlineInterfaceComponent } from './workflow/course-workflow-card/card-modal/deadline-interface/deadline-interface.component';
+import { BugReportComponent } from './bug-report/bug-report.component';
+import { NewBugComponent } from './bug-report/new-bug/new-bug.component';
+import { BugViewComponent } from './bug-report/bug-view/bug-view.component';
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -70,6 +73,9 @@ import { DeadlineInterfaceComponent } from './workflow/course-workflow-card/card
     ExpandableMenuComponent,
     CourseDescriptionComponent,
     DeadlineInterfaceComponent,
+    BugReportComponent,
+    NewBugComponent,
+    BugViewComponent,
   ],
   imports: [
     BrowserModule,

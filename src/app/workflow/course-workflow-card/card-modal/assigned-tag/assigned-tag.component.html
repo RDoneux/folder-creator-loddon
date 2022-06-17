@@ -2,7 +2,7 @@
   <div
     class="top-left-tag"
     [ngStyle]="{
-      background: assignedUser ? assignedUser.colour : unassignedColour
+      background: assignedUser ? assignedUser.colour : unassignedBackground
     }"
   ></div>
 
@@ -10,10 +10,10 @@
   <span
     class="name-wrapper"
     [ngStyle]="{
-      background: assignedUser ? assignedUser.colour : unassignedColour
+      background: assignedUser ? assignedUser.colour : unassignedBackground
     }"
   >
-    {{ assignedUser ? assignedUser.name : "unassigned" }}
+    {{ assignedUser ? assignedUser.name : "Unassigned" }}
   </span>
   <div class="user-input-wrapper">
     <div
