@@ -4,13 +4,14 @@ import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { UntypedFormBuilder } from '@angular/forms';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   currentUser;
 
-  constructor(public http: HttpClient, public cookieService: CookieService) {}
+  constructor(public http: HttpClient, public cookieService: CookieService) { }
 
   // async getCurrentUser(): Promise<any> {
   //   var user;
@@ -28,8 +29,10 @@ export class UserService {
     //     .subscribe((data) => {resolve(data)})
     // );
 
-    var cachedUser = this.cookieService.get('name');
-    if(!cachedUser) return undefined;
+    // var cachedUser = this.cookieService.get('name');
+    var cachedUser = window.localStorage.getItem("name");
+
+    if (!cachedUser) return undefined;
     return new Promise((resolve) => {
       this.http
         .get('http://localhost:8080/user/' + cachedUser)
@@ -38,6 +41,7 @@ export class UserService {
           this.currentUser = data;
         });
     });
+
 
     // this.http.get('http://localhost:8080/users').subscribe((data) => {
 
@@ -53,7 +57,12 @@ export class UserService {
   }
 
   setCurrentUser(user: User) {
-    this.cookieService.set('name', user.name);
+    // const date = new Date().getDate() + 5;
+    // this.cookieService.set("name", user.name, date, "file://", null);
+    window.localStorage.setItem("name", user.name);
+    // this.cookieService.set('name', user.name);
+    console.log("cashing: ", user.name);
+    console.log("current user cached as: ", this.cookieService.get('name'));
   }
 
   getUserByName(name: String) {

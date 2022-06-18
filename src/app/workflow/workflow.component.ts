@@ -16,7 +16,7 @@ export class WorkflowComponent implements OnInit {
   trackNames: string[] = [
     'Courses',
     'Being Written',
-    '2nd Review',
+    'Second Review',
     'Final Sign off',
     'Ready for Admin',
   ];
@@ -74,7 +74,7 @@ export class WorkflowComponent implements OnInit {
           case 'being written':
             this.tracks[1].cards.push(card);
             break;
-          case 'require 2nd review':
+          case 'second review':
             this.tracks[2].cards.push(card);
             break;
           case 'final sign off':
