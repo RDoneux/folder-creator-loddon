@@ -5,7 +5,11 @@
   height: 100%;
   background: $default-background-colour;
 
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  // overflow-y: auto;
 
   h1 {
     padding-left: 2rem;
@@ -13,7 +17,7 @@
   }
 
   .document-wrapper {
-    height: 30%;
+    height: 40%;
     overflow-y: auto;
     table {
       padding-left: 0;
@@ -39,15 +43,15 @@
   }
 
   .course-wrapper {
-    padding-top: 5rem;
+    padding-top: .5rem;
 
     height: 60%;
     overflow-y: auto;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // flex-direction: column;
 
     h2 {
       padding-left: 2rem;
