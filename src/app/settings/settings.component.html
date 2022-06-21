@@ -1,12 +1,6 @@
-<app-setting-modal
-  *ngIf="showAddModal"
-  (cancel)="displayModal(false)"
-></app-setting-modal>
-<app-add-course-profile-modal
-  *ngIf="showProfileAddModal"
-  (cancel)="displayProfileAddModal(false)"
-  app-add-course-profile-modal
->
+<app-setting-modal *ngIf="showAddModal" (cancel)="displayModal(false)"></app-setting-modal>
+<app-add-course-profile-modal *ngIf="showProfileAddModal" (cancel)="displayProfileAddModal(false)"
+  app-add-course-profile-modal>
 </app-add-course-profile-modal>
 <app-surround>
   <div class="container">
@@ -22,33 +16,22 @@
             <i class="fa-solid fa-file"></i>
             <label for="{{ document.name }}" class="name-wrapper">{{
               document.name
-            }}</label>
+              }}</label>
           </td>
           <td>
             <label for="{{ document.name }}" class="value-wrapper">
               <i class="fa-solid fa-location-crosshairs"></i>
-              {{ document.display }}</label
-            >
+              {{ document.display }}</label>
           </td>
           <td>
             <label class="version-wrapper" for="{{ document.name }}">
               <i class="fa-solid fa-code-branch"></i>
-              {{ document.version }}</label
-            >
+              {{ document.version }}</label>
           </td>
           <td>
-            <i
-              class="fa-solid fa-trash-can"
-              id="{{ document.name }}-delete"
-              (click)="handleFileDelete($event)"
-            ></i>
+            <i class="fa-solid fa-trash-can" id="{{ document.name }}-delete" (click)="handleFileDelete($event)"></i>
           </td>
-          <input
-            hidden
-            (change)="handleFileChange($event)"
-            id="{{ document.name }}"
-            type="file"
-          />
+          <input hidden (change)="handleFileChange($event)" id="{{ document.name }}" type="file" />
         </tr>
         <tr>
           <td colspan="4" (click)="displayModal(true)">Add new document</td>
@@ -57,52 +40,34 @@
     </div>
     <div class="course-wrapper">
       <div class="course-select-wrapper">
-        <select
-          (change)="handleCourseProfileChange($event)"
-          class="course-select"
-        >
+        <select (change)="handleCourseProfileChange($event)" class="course-select">
           <option *ngFor="let course of courses">{{ course.name }}</option>
         </select>
-        <button
-          type="button"
-          class="add-course-button"
-          (click)="displayProfileAddModal(true)"
-        >
+        <button type="button" class="add-course-button" (click)="displayProfileAddModal(true)">
           <i class="fa-solid fa-plus"></i>
         </button>
       </div>
       <ul>
         <h3 class="course-list_first">General Files</h3>
-        <li
-          *ngFor="let file of selectedCourse.files.generalFiles; let i = index"
-          class="course-list_first"
-        >
-          <label for="generalRequired-{{ i }}">{{ file.name }}</label
-          ><input
-            id="generalRequired-{{ i }}"
-            type="checkbox"
-            value="{{ selectedCourse.name }}|{{ file.name }}"
-            (change)="handleGeneralRequiredChange($event)"
-            [checked]="file.required == 'true'"
-          />
-        </li>
+        <span *ngIf="selectedCourse">
+          <li *ngFor="let file of selectedCourse.files.generalFiles; let i = index" class="course-list_first">
+            <label for="generalRequired-{{ i }}">{{ file.name }}</label><input id="generalRequired-{{ i }}"
+              type="checkbox" value="{{ selectedCourse.name }}|{{ file.name }}"
+              (change)="handleGeneralRequiredChange($event)" [checked]="file.required == 'true'" />
+          </li>
+        </span>
         <h3 class="course-list_second">Candidate Files</h3>
-        <li
-          *ngFor="
+        <span *ngIf="selectedCourse">
+          <li *ngFor="
             let file of selectedCourse.files.candidateFiles;
             let i = index
-          "
-          class="course-list_second"
-        >
-          <label for="candidateRequired-{{ i }}">{{ file.name }}</label>
-          <input
-            id="candidateRequired-{{ i }}"
-            type="checkbox"
-            value="{{ selectedCourse.name }}|{{ file.name }}"
-            (change)="handleCandidateRequiredChange($event)"
-            [checked]="file.required == 'true'"
-          />
-        </li>
+          " class="course-list_second">
+
+            <label for="candidateRequired-{{ i }}">{{ file.name }}</label>
+            <input id="candidateRequired-{{ i }}" type="checkbox" value="{{ selectedCourse.name }}|{{ file.name }}"
+              (change)="handleCandidateRequiredChange($event)" [checked]="file.required == 'true'" />
+          </li>
+        </span>
       </ul>
     </div>
   </div>
