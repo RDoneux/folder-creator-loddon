@@ -47,10 +47,9 @@ export class AddCourseProfileModalComponent implements OnInit {
     const formData = new FormData();
     formData.append('courseName', this.textInput.nativeElement.value);
 
-
-
     this.http
       .post('http://localhost:8080/addNewCourseProfile', formData)
       .subscribe((data) => {});
+    window.location.reload();
   }
 }

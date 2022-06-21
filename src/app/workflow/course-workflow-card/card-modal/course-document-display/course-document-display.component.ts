@@ -33,8 +33,9 @@ export class CourseDocumentDisplayComponent implements OnInit {
 
   ngOnInit(): void {
     this.jsonFiles = JSON.parse(this.files);
+    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjson files: " , this.jsonFiles);
   }
-
+  
   // private addFlagIfNotAlreadyAdded(
   //   candidate: string,
   //   candidates: String[]
@@ -232,11 +233,12 @@ export class CourseDocumentDisplayComponent implements OnInit {
   openFile(fileName: string, candidate?: string) {
     const formData: FormData = new FormData();
 
+    console.log("file nnnnnnnnnnnnnnnnnnnnnnnnnnnname ", fileName);
+
     formData.append('fileName', fileName);
     formData.append('coursePath', this.coursePath);
-    if (candidate) {
-      formData.append('candidate', candidate);
-    }
+    formData.append('candidate', candidate || "");
+    
     this.http
       .post('http://localhost:8080/openFile', formData)
       .subscribe((data) => {});

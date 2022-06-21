@@ -4,10 +4,10 @@
       <span
         class="item-name"
         (click)="
-          openFile(utils.convertJSONName(utils.capitaliseString(file.name)))
+          openFile(file.name)
         "
       >
-        {{ utils.convertJSONName(utils.capitaliseString(file.name)) }}
+        {{file.name}}
       </span>
       <span class="item-checkboxes">
         <span class="divide">|</span>
@@ -46,7 +46,7 @@
   </app-expandable-menu>
   <app-expandable-menu
     *ngFor="let file of jsonFiles.candidate; let i = index"
-    title="{{ utils.convertJSONName(utils.capitaliseString(file.name)) }}"
+    title="{{ file.name }}"
     subInfo="{{
       file.signedOff === 'true'
         ? 'Candidate has been signed off'
@@ -66,14 +66,14 @@
         class="document-name"
         (click)="
           openFile(
-            utils.convertJSONName(utils.capitaliseString(candidateFile.name)),
+            candidateFile.name,
             file.name
           )
         "
       >
-        {{ utils.convertJSONName(utils.capitaliseString(candidateFile.name)) }}
+        {{candidateFile.name}}
       </span>
-      <span class="document-checkboxes">
+      <span class="item-checkboxes">
         <span class="divide">|</span>
         <label
           >In Progress
