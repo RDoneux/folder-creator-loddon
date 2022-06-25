@@ -96,26 +96,26 @@
               &::-webkit-file-upload-button {
                   visibility: hidden;
               }
-              &::before {
-                  content: "Choose file to upload";
+            //   &::before {
+            //       content: "Choose file to upload";
 
-                  padding: 0.7rem;
-                  font-size: 1.2rem;
+            //       padding: 0.7rem;
+            //       font-size: 1.2rem;
           
-                  margin: 0;
+            //       margin: 0;
           
-                  background: $main-theme-colour;
-                  @include standard-border();
+            //       background: $main-theme-colour;
+            //       @include standard-border();
           
-                  color: white;
+            //       color: white;
           
-                  width: 10rem;
+            //       width: 10rem;
           
-                  font-family: $default-font;
-              }
-              &:hover::before {
-                background: rgb(214, 50, 50);
-              }
+            //       font-family: $default-font;
+            //   }
+            //   &:hover::before {
+            //     background: rgb(214, 50, 50);
+            //   }
         }
 
         .create-document {

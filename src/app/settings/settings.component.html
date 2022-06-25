@@ -1,12 +1,19 @@
 <app-setting-modal *ngIf="showAddModal" (cancel)="displayModal(false)"></app-setting-modal>
-<app-add-course-profile-modal *ngIf="showProfileAddModal" (cancel)="displayProfileAddModal(false)"
-  app-add-course-profile-modal>
-</app-add-course-profile-modal>
+<app-add-course-profile-modal *ngIf="showProfileAddModal" (cancel)="displayProfileAddModal(false)"></app-add-course-profile-modal>
 <app-surround>
   <div class="container">
     <h1>Course Settings</h1>
     <div class="document-wrapper">
-      <table>
+      <app-document-card 
+        *ngFor="let document of documents" 
+        [documentName]="document.name"
+        [documentVersion]="document.version">
+      </app-document-card>
+
+      <app-document-card
+        [forUpload] = true
+      ></app-document-card>
+      <!-- <table>
         <th class="reference-name">Reference Name</th>
         <th class="document-name">Document name</th>
         <th class="version-information">Version Information</th>
@@ -36,9 +43,9 @@
         <tr>
           <td colspan="4" (click)="displayModal(true)">Add new document</td>
         </tr>
-      </table>
+      </table> -->
     </div>
-    <div class="course-wrapper">
+    <!-- <div class="course-wrapper">
       <div class="course-select-wrapper">
         <select (change)="handleCourseProfileChange($event)" class="course-select">
           <option *ngFor="let course of courses">{{ course.name }}</option>
@@ -69,6 +76,6 @@
           </li>
         </span>
       </ul>
-    </div>
-  </div>
+    </div>-->
+  </div> 
 </app-surround>

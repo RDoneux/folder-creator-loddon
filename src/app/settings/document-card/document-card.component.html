@@ -1,0 +1,11 @@
+<!-- <i class="fa-regular fa-file image-wrapper"></i> -->
+
+<div *ngIf="!forUpload" class="container">
+    <h1 class="title">{{documentName}}</h1>
+    <h3 class="version">V{{documentVersion}}</h3>
+</div>
+
+<div *ngIf="forUpload" class="container">
+    <h1 class="title">Upload new document</h1>
+    <i class="fa-solid fa-plus plus"></i>
+</div>

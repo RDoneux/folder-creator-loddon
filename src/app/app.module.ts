@@ -40,6 +40,7 @@ import { DeadlineInterfaceComponent } from './workflow/course-workflow-card/card
 import { BugReportComponent } from './bug-report/bug-report.component';
 import { NewBugComponent } from './bug-report/new-bug/new-bug.component';
 import { BugViewComponent } from './bug-report/bug-view/bug-view.component';
+import { DocumentCardComponent } from './settings/document-card/document-card.component';
 // import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
@@ -76,6 +77,7 @@ import { BugViewComponent } from './bug-report/bug-view/bug-view.component';
     BugReportComponent,
     NewBugComponent,
     BugViewComponent,
+    DocumentCardComponent,
   ],
   imports: [
     BrowserModule,
